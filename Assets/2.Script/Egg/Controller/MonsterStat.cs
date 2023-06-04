@@ -36,6 +36,9 @@ public class MonsterStat : MonoBehaviour
         }
         else if(MakeText != null && isCritical == true)
         {
+            if (playerDamage == 1)
+                playerDamage = 2;
+
             MakeText(playerDamage, isCritical);
             //Debug.Log("Ä¡¸íÅ¸");
         }

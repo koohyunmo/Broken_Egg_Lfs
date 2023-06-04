@@ -121,6 +121,79 @@ public class StageManager
             dmg *= -1;
 
 
+        if (dmg == 0)
+            dmg = 1;
+
+        return dmg;
+
+    }
+
+    public long GetCriDMG()
+    {
+
+        long d = (long)(Managers.Game.TotalDamage * Managers.Game.EquipItemData.itemCriticalPlusDamage  );;
+
+        float _monsterShield = CalShield();
+
+        if (Managers.Game.EquipItemData.shieldAttack < 0)
+            Managers.Game.EquipItemData.shieldAttack = int.MaxValue;
+
+        int sA = Managers.Game.EquipItemData.shieldAttack;
+
+        float shield = (_monsterShield) / (100 + _monsterShield + sA);
+        long dmg = 0;
+
+        dmg = (long)((d) * (1 - shield));
+
+
+        if (dmg >= long.MaxValue || dmg == long.MaxValue * -1)
+        {
+            dmg = long.MaxValue;
+        }
+
+        if (dmg < 0)
+            dmg *= -1;
+
+        if (dmg == 1 || dmg == 0)
+            dmg = 2;
+
+        return dmg;
+    }
+
+    public long GetCDmage()
+    {
+        long d = Managers.Game.TotalDamage;
+
+        float _monsterShield = CalShield();
+
+        if (Managers.Game.EquipItemData.shieldAttack < 0)
+            Managers.Game.EquipItemData.shieldAttack = int.MaxValue;
+
+        int sA = Managers.Game.EquipItemData.shieldAttack;
+
+        float shield = (_monsterShield) / (100 + _monsterShield + sA);
+        long dmg = 0;
+
+        /*
+        데미지 감소율 = (몬스터 방어력) / (100 + 몬스터 방어력)
+        플레이어가 몬스터에게 가할 수 있는 실제 데미지 = (플레이어 공격력) x (1 - 데미지 감소율)
+         */
+
+
+        dmg = (long)((d) * (1 - shield));
+
+
+        if (dmg >= long.MaxValue || dmg == long.MaxValue * -1)
+        {
+            dmg = long.MaxValue;
+        }
+
+        if (dmg < 0)
+            dmg *= -1;
+
+
+        if (dmg == 0)
+            dmg = 1;
 
         return dmg;
 
@@ -231,7 +304,7 @@ public class StageManager
     {
         int current = Managers.Game.StageData.currentStage;
 
-        int reward = (int)(Managers.Game.StageData.currentStage * Mathf.Pow(current, 2f));
+        int reward = (int)(Mathf.Pow(1.3f, current) * 2);
 
         return reward;
     }

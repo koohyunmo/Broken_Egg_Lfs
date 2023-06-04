@@ -420,10 +420,10 @@ public class UI_Upgrade_Popup : UI_PopupWithItem
             _addLevelTMP.text = "+1";
 
             _currenDMGTMP.text = "DMG : " + idata.itemDamage.ToString();
-            _addDMGTMP.text = "+" + Managers.Reinforce.CalReinforceDMG(idata);
+            _addDMGTMP.text = "+" + (Managers.Reinforce.CalReinforceDMG(idata)<=0 ? 1 : Managers.Reinforce.CalReinforceDMG(idata));
             
 
-            _reductionTMP.text = "Reduction : " + idata.shieldAttack.ToString();
+            _reductionTMP.text = " : " + idata.shieldAttack.ToString();
             _AddreductionTMP.text = "+" + Managers.Reinforce.CalShiedAttack(_id);
 
             if (idata.itemCriticalPercent >= 100)
@@ -434,7 +434,7 @@ public class UI_Upgrade_Popup : UI_PopupWithItem
             else
             {
                 _criPerTMP.text = "CRI : " + idata.itemCriticalPercent.ToString("F2") + "%";
-                _addCriPerTMP.text = "+" + (idata.itemCriticalPercent * Managers.Reinforce.CalCriPer(_id)).ToString("F2") + "%";
+                _addCriPerTMP.text = "+" + ((idata.itemCriticalPercent * Managers.Reinforce.CalCriPer(_id)) <= 0 ? 0.1f : idata.itemCriticalPercent * Managers.Reinforce.CalCriPer(_id)).ToString("F2") + "%";
             }
 
 

@@ -77,6 +77,11 @@ public class UI_InfoPanel : UI_Base
 
             string soundName = "Weapon_Draw_Metal_10";
 
+            if (_id == Managers.Game.UseEquipment)
+                ChangeAlpha();
+            else
+                ChangeAlpha(1);
+
             Managers.Sound.Play(soundName);
 
         });

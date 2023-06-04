@@ -141,12 +141,12 @@ public class UI_ItemInformationPopup : UI_Popup
                 list.Add("Damage : " + itemData.damage.ToString());
                 list.Add("Cri : " + itemData.criticalPercent.ToString() + "%");
                 list.Add("Cri Dmg : " + (itemData.criticalDamage * 100).ToString("F2") + "%");
-                list.Add("Ammor Reduction : " + Managers.Reinforce.CalShiedAttack(_id).ToString("F2") + "%");
+                list.Add("Ammor Reduction : " + Managers.Reinforce.SheildAttack(Managers.Data.ItemDic[id].Grade).ToString("F2") );
                 break;
             case Define.ItemType.Weapon:
                 list.Add("Damage : " + itemData.damage.ToString());
                 list.Add("Cri : " + itemData.criticalPercent.ToString()+"%");
-                list.Add("Ammor Reduction : " + Managers.Reinforce.CalShiedAttack(_id).ToString("F2") + "%");
+                list.Add("Ammor Reduction : " + Managers.Reinforce.SheildAttack(Managers.Data.ItemDic[id].Grade).ToString("F2") );
                 break;
             case Define.ItemType.Ingredient:
                 break;
@@ -170,7 +170,6 @@ public class UI_ItemInformationPopup : UI_Popup
             case Define.TapType.None:
                 break;
             case Define.TapType.Market:
-                list.Add("Price : " + itemData.itemCost.ToString());
                 break;
             case Define.TapType.Craft:
                 break;

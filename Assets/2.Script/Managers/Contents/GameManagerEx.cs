@@ -78,7 +78,15 @@ public class GameManagerEx
     }
     //public long Damage { get { return CalculateDamage(); } /*private set { _gameData.damage = value; } */}
     public long CurrentExp { get; private set; }
-    public long MaxExp { get { return (long)(2 * Mathf.Pow(2, Level)); } }
+    public long MaxExp { get { return (long)(2 * Mathf.Pow(3, Level)); } }
+
+    /*
+             int current = Managers.Game.StageData.currentStage;
+
+        int reward = (int)(Mathf.Pow(2f, current) * 2);
+
+        return reward;
+     */
 
     public ItemData EquipItemData { get { return _gameData.inventoryItem.item[UseEquipment]; } private set { _gameData.inventoryItem.item[UseEquipment] = value; } }
     public MarketData MarketData { get { return _gameData.marketData; } private set { _gameData.marketData = value; } }
@@ -783,6 +791,10 @@ public class GameManagerEx
 
     public void DoReninforce(string id, int count, long addDmg, int goldOrGem)
     {
+        if(addDmg == 0)
+        {
+            addDmg = 1;
+        }
 
         _gameData.inventoryItem.item[id].itemCount = count;
         _gameData.inventoryItem.item[id].reinforce++;
@@ -791,11 +803,25 @@ public class GameManagerEx
         _gameData.inventoryItem.item[id].itemCriticalPercent += _gameData.inventoryItem.item[id].itemCriticalPercent * Managers.Reinforce.CalCriPer(id);
         _gameData.inventoryItem.item[id].itemCriticalPlusDamage += _gameData.inventoryItem.item[id].itemCriticalPlusDamage * Managers.Reinforce.CalCriDmg(id);
         _gameData.playerData.reinforceCount++;
+
+        if (_gameData.inventoryItem.item[id].itemCriticalPlusDamage * Managers.Reinforce.CalCriDmg(id) == 0)
+        {
+            _gameData.inventoryItem.item[id].itemCriticalPlusDamage += 0.1f;
+        }
+
+
+
+
         Managers.Game.SaveGame("DoReninforce");
     }
 
     public void DoReinforceGold(string id, long addDmg, long gold=0)
     {
+
+        if (addDmg == 0)
+        {
+            addDmg = 1;
+        }
 
         _gameData.inventoryItem.item[id].reinforce++;
         _gameData.inventoryItem.item[id].itemDamage += addDmg;
@@ -803,6 +829,11 @@ public class GameManagerEx
         _gameData.inventoryItem.item[id].itemCriticalPercent += _gameData.inventoryItem.item[id].itemCriticalPercent * Managers.Reinforce.CalCriPer(id);
         _gameData.inventoryItem.item[id].itemCriticalPlusDamage += _gameData.inventoryItem.item[id].itemCriticalPlusDamage * Managers.Reinforce.CalCriDmg(id);
         _gameData.playerData.reinforceCount++;
+
+        if (_gameData.inventoryItem.item[id].itemCriticalPlusDamage * Managers.Reinforce.CalCriDmg(id) == 0)
+        {
+            _gameData.inventoryItem.item[id].itemCriticalPlusDamage += 0.1f;
+        }
 
         MinusGold(gold);
 
@@ -812,12 +843,23 @@ public class GameManagerEx
     public void DoReinforceGem(string id, long addDmg, long gem=0)
     {
 
+        if (addDmg == 0)
+        {
+            addDmg = 1;
+        }
+
+
         _gameData.inventoryItem.item[id].reinforce++;
         _gameData.inventoryItem.item[id].itemDamage += addDmg;
         _gameData.inventoryItem.item[id].shieldAttack += (int)Managers.Reinforce.CalShiedAttack(id);
         _gameData.inventoryItem.item[id].itemCriticalPercent += _gameData.inventoryItem.item[id].itemCriticalPercent * Managers.Reinforce.CalCriPer(id);
         _gameData.inventoryItem.item[id].itemCriticalPlusDamage += _gameData.inventoryItem.item[id].itemCriticalPlusDamage * Managers.Reinforce.CalCriDmg(id);
         _gameData.playerData.reinforceCount++;
+
+        if (_gameData.inventoryItem.item[id].itemCriticalPlusDamage * Managers.Reinforce.CalCriDmg(id) == 0)
+        {
+            _gameData.inventoryItem.item[id].itemCriticalPlusDamage += 0.1f;
+        }
 
         MinusGem(gem);
 

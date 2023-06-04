@@ -110,7 +110,7 @@ public class AdManager
 
     public void GetSideButtonReward()
     {
-        Action a = () => { Managers.Game.Additem("CH0005"); };
+        Action a = () => { Managers.Game.Additem("CH0004"); };
 
         ShowRewardAd(a);
     }

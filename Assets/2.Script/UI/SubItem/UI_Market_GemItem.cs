@@ -125,6 +125,21 @@ public class UI_Market_GemItem : UI_Base
 
         _gemSlider.value = ratio;
 
+        if (count > 0)
+        {
+
+            GetButton((int)Buttons.MarketBuyButton).GetComponent<Image>().color = Color.white;
+        }
+        else
+        {
+            _priceTMP.text = " Sold Out ";
+            _gemSlider.value = 0;
+            GetButton((int)Buttons.MarketBuyButton).GetComponent<Image>().color = Color.gray;
+        }
+
+        if (ratio < 1)
+            GetButton((int)Buttons.MarketBuyButton).GetComponent<Image>().color = Color.gray;
+
     }
 
 

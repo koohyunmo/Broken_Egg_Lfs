@@ -504,7 +504,6 @@ public class MonsterController : MonoBehaviour
 
         int isCiritical = UnityEngine.Random.Range(0, 101);
         float randomDamage = 0;
-        float playDmg = Managers.Game.PlayerDamage;
         ItemData playWeapon = Managers.Game.EquipItemData;
         bool isCritical = false;
 
@@ -513,12 +512,12 @@ public class MonsterController : MonoBehaviour
 
         if (percent >= isCiritical)
         {
-            randomDamage = playDmg * playWeapon.itemCriticalPlusDamage;
+            randomDamage = UnityEngine.Random.Range(playWeapon.itemCriticalPlusDamage, playWeapon.itemCriticalPlusDamage+0.3f);
             isCritical = true;
         }
         else
         {
-            randomDamage = UnityEngine.Random.Range(playDmg, playDmg * 1.3f);
+            randomDamage = UnityEngine.Random.Range(1, 1.3f);
         }
 
 

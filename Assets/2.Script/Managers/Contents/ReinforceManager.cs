@@ -137,7 +137,7 @@ public class ReinforceManager
 
         long sA = 0;
 
-        int a = Managers.Game.InventoryData.item[id].shieldAttack;
+        int a = Managers.Data.ItemDic[id].shieldAttack;
 
         if (a > 0)
         {
@@ -150,7 +150,7 @@ public class ReinforceManager
 
     public bool GemUpgrade(string id)
     {
-        int rg = RequireGemCheck(id);
+        long rg = RequireGemCheck(id);
         Managers.Game.InventoryData.item.TryGetValue(id, out ItemData Itemdata);
 
         if (Managers.Game.Gem >= rg)
@@ -205,19 +205,19 @@ public class ReinforceManager
                 c = 0.05f;
                 break;
             case Define.Grade.Common:
-                c = 0.10f;
+                c = 0.05f;
                 break;
             case Define.Grade.Rare:
-                c = 0.15f;
+                c = 0.10f;
                 break;
             case Define.Grade.Unique:
-                c = 0.20f;
+                c = 0.15f;
                 break;
             case Define.Grade.Legend:
-                c = 0.30f;
+                c = 0.25f;
                 break;
             case Define.Grade.Hero:
-                c = 0.50f;
+                c = 0.45f;
                 break;
         }
 
@@ -271,82 +271,82 @@ public class ReinforceManager
         switch (itemData.itemGrade)
         {
             case Define.Grade.Common:
-                gold = (int)(100 *Mathf.Pow(1.2f, itemData.reinforce));
+                gold = (long)(100 *Mathf.Pow(1.2f, itemData.reinforce));
                 break;
             case Define.Grade.Rare:
-                gold = (int)(1000 * Mathf.Pow(1.3f, itemData.reinforce));
+                gold = (long)(1000 * Mathf.Pow(1.3f, itemData.reinforce));
                 break;
             case Define.Grade.Unique:
-                gold = (int)(10000*Mathf.Pow(1.4f, itemData.reinforce));
+                gold = (long)(10000*Mathf.Pow(1.4f, itemData.reinforce));
                 break;
             case Define.Grade.Legend:
-                gold = (int)(50000 *Mathf.Pow(1.4f, itemData.reinforce));
+                gold = (long)(50000 *Mathf.Pow(1.4f, itemData.reinforce));
                 break;
             case Define.Grade.Hero:
-                gold = (int)(200000 *Mathf.Pow(1.4f, itemData.reinforce));
+                gold = (long)(200000 *Mathf.Pow(1.4f, itemData.reinforce));
                 break;
         }
 
         if (gold < 0)
-            gold = int.MaxValue;
+            gold = long.MaxValue;
 
         return gold;
     }
 
-    public int RequrieGoldCheck(Define.Grade grade, int level)
+    public long RequrieGoldCheck(Define.Grade grade, int level)
     {
-        int gold = 0;
+        long gold = 0;
 
         switch (grade)
         {
             case Define.Grade.Common:
-                gold = (int)(100 * Mathf.Pow(1.2f, level));
+                gold = (long)(100 * Mathf.Pow(1.2f, level));
                 break;
             case Define.Grade.Rare:
-                gold = (int)(1000 * Mathf.Pow(1.3f, level));
+                gold = (long)(1000 * Mathf.Pow(1.3f, level));
                 break;
             case Define.Grade.Unique:
-                gold = (int)(10000 * Mathf.Pow(1.4f, level));
+                gold = (long)(10000 * Mathf.Pow(1.4f, level));
                 break;
             case Define.Grade.Legend:
-                gold = (int)(50000 * Mathf.Pow(1.4f, level));
+                gold = (long)(50000 * Mathf.Pow(1.4f, level));
                 break;
             case Define.Grade.Hero:
-                gold = (int)(200000 * Mathf.Pow(1.4f, level));
+                gold = (long)(200000 * Mathf.Pow(1.4f, level));
                 break;
         }
 
         if (gold < 0)
-            gold = int.MaxValue;
+            gold = long.MaxValue;
 
         return gold;
     }
 
-    public int RequireGemCheck(Define.Grade grade, int level)
+    public long RequireGemCheck(Define.Grade grade, int level)
     {
-        int gem = 0;
+        long gem = 0;
 
         switch (grade)
         {
             case Define.Grade.Common:
-                gem = (int)(1 * Mathf.Pow(1.1f, level));
+                gem = (long)(1 * Mathf.Pow(1.1f, level));
                 break;
             case Define.Grade.Rare:
-                gem = (int)(3 * Mathf.Pow(1.1f, level));
+                gem = (long)(3 * Mathf.Pow(1.1f, level));
                 break;
             case Define.Grade.Unique:
-                gem = (int)(5 * Mathf.Pow(1.1f, level));
+                gem = (long)(5 * Mathf.Pow(1.1f, level));
                 break;
             case Define.Grade.Legend:
-                gem = (int)(7 * Mathf.Pow(1.1f, level));
+                gem = (long)(7 * Mathf.Pow(1.1f, level));
                 break;
             case Define.Grade.Hero:
-                gem = (int)(10 * Mathf.Pow(1.1f, level));
+                gem = (long)(10 * Mathf.Pow(1.1f, level));
                 break;
         }
 
         if (gem < 0)
-            gem = int.MaxValue;
+            gem = long.MaxValue;
 
 
         return gem;
@@ -354,37 +354,65 @@ public class ReinforceManager
 
 
 
-    public int RequireGemCheck(string id)
+    public long RequireGemCheck(string id)
     {
         Managers.Game.InventoryData.item.TryGetValue(id, out ItemData itemData);
-        int gem = 0;
+        long gem = 0;
 
         switch (itemData.itemGrade)
         {
             case Define.Grade.Common:
-                gem = (int)(1 * Mathf.Pow(1.1f, itemData.reinforce));
+                gem = (long)(1 * Mathf.Pow(1.1f, itemData.reinforce));
                 break;
             case Define.Grade.Rare:
-                gem = (int)(3 * Mathf.Pow(1.1f, itemData.reinforce));
+                gem = (long)(3 * Mathf.Pow(1.1f, itemData.reinforce));
                 break;
             case Define.Grade.Unique:
-                gem = (int)(5 * Mathf.Pow(1.1f, itemData.reinforce));
+                gem = (long)(5 * Mathf.Pow(1.1f, itemData.reinforce));
                 break;
             case Define.Grade.Legend:
-                gem = (int)(7 * Mathf.Pow(1.1f, itemData.reinforce));
+                gem = (long)(7 * Mathf.Pow(1.1f, itemData.reinforce));
                 break;
             case Define.Grade.Hero:
-                gem = (int)(10 * Mathf.Pow(1.1f, itemData.reinforce));
+                gem = (long)(10 * Mathf.Pow(1.1f, itemData.reinforce));
                 break;
         }
 
         if (gem < 0)
-            gem = int.MaxValue;
+            gem = long.MaxValue;
 
 
         return gem;
     }
 
+
+    public int SheildAttack(Define.Grade grade)
+    {
+        int shieldAttack = 0;
+        switch (grade)
+        {
+            case Define.Grade.None:
+                shieldAttack = 0;
+                break;
+            case Define.Grade.Common:
+                shieldAttack = 0;
+                break;
+            case Define.Grade.Rare:
+                shieldAttack = 10;
+                break;
+            case Define.Grade.Unique:
+                shieldAttack = 20;
+                break;
+            case Define.Grade.Legend:
+                shieldAttack = 30;
+                break;
+            case Define.Grade.Hero:
+                shieldAttack = 40;
+                break;
+        }
+
+        return shieldAttack;
+    }
 
     void c_MaxIdChecker(string id)
     {
