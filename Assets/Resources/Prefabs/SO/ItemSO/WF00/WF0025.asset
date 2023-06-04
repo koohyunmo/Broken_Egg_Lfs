@@ -1,0 +1,40 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 28dc2a979db8c3a4aa2a0c68857f4bfb, type: 3}
+  m_Name: WF0025
+  m_EditorClassIdentifier: 
+  itemID: WF0025
+  itemName: An Enchanted Gemstaff
+  itemDescription: 
+  itemCost: 79512
+  itemIcon: {fileID: 21300000, guid: 5333fc8aebb8ecb418b3df85a0c5bd21, type: 3}
+  itemBackGroundImage: {fileID: 0}
+  itemType: 1
+  getRouteItemType: 0
+  Grade: 3
+  canDropStage: 0
+  cantDropStage: 0
+  getItemStage: 0
+  effectType: 0
+  damage: 1300
+  criticalPercent: 40
+  criticalDamage: 2.5
+  itemObject: {fileID: 5112403345868107898, guid: 6f34ef0d986e9db4199cf75805f79753, type: 3}
+  itemObjectPath: Prefabs/Effects/FIRE/CFXR3 Hit Ice B (Air)
+  itemIconPath: An Enchanted Gemstaff
+  chestPercent: 
+  chesOpenImage: {fileID: 0}
+  shieldAttack: 0
+  rewardGold: 0
+  rewardGem: 0
+  gem: 0
+  soundType: 5

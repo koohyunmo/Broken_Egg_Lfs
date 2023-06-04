@@ -22,6 +22,8 @@
 # Visual Studio cache directory
 .vs/
 
+FirebaseCppApp-11_1_0.bundle
+
 # Gradle cache directory
 .gradle/
 

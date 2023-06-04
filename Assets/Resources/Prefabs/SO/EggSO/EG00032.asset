@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fb2e25e75781c134c878252fa45242bf, type: 3}
+  m_Name: EG00032
+  m_EditorClassIdentifier: 
+  eggID: EG0032
+  eggName: Eg032
+  eggImage: {fileID: 21300000, guid: d89a78eedbe7a054b891f5e443782a0b, type: 3}
+  level: 32
+  MaxHp: 85899345920

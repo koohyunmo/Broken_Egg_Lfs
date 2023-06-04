@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "1071611393558",
+    "project_id": "broken-egg-c6aa9",
+    "storage_bucket": "broken-egg-c6aa9.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1071611393558:android:5c0675fbb306271e456737",
+        "android_client_info": {
+          "package_name": "com.hypermoneygames.BrokenEgg"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1071611393558-ovpaduk5s4fq116on3mj3batsf2jc8sv.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDUNfHHyTk3bJmGgJ7-P_6x-qaIMivBUd0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1071611393558-ovpaduk5s4fq116on3mj3batsf2jc8sv.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

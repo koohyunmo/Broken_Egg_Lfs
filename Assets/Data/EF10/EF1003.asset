@@ -1,0 +1,35 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 28dc2a979db8c3a4aa2a0c68857f4bfb, type: 3}
+  m_Name: EF1003
+  m_EditorClassIdentifier: 
+  itemID: EF1003
+  itemName: Inferno
+  itemDescription: 
+  itemCost: 10
+  itemIcon: {fileID: 0}
+  itemBackGroundImage: {fileID: 0}
+  itemType: 1
+  getRouteItemType: 0
+  recipies: []
+  recipiesCount: 
+  Grade: 1
+  canDropStage: 0
+  cantDropStage: 0
+  getItemStage: 0
+  effectType: 0
+  damage: 10
+  criticalPercent: 0
+  criticalDamage: 0
+  itemObject: {fileID: 0}
+  itemObjectPath: Objects/Effect/Fire/CFX4_Fire Disintegrate (CFX Blend)
+  itemIconPath: Inferno

@@ -1,0 +1,40 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 28dc2a979db8c3a4aa2a0c68857f4bfb, type: 3}
+  m_Name: WF0001
+  m_EditorClassIdentifier: 
+  itemID: WF0001
+  itemName: Wooden Sword
+  itemDescription: 
+  itemCost: 1000
+  itemIcon: {fileID: 21300000, guid: 8f3b09bf018ecfc4d9e755f427f61eff, type: 3}
+  itemBackGroundImage: {fileID: 0}
+  itemType: 1
+  getRouteItemType: 0
+  Grade: 1
+  canDropStage: 0
+  cantDropStage: 0
+  getItemStage: 0
+  effectType: 0
+  damage: 3
+  criticalPercent: 25
+  criticalDamage: 1.5
+  itemObject: {fileID: 2560113612059465411, guid: 2a3986fe4a79818489ba22167b667970, type: 3}
+  itemObjectPath: Prefabs/Effects/FIRE/CFXR4 Sword Hit PLAIN
+  itemIconPath: Wooden Sword
+  chestPercent: 
+  chesOpenImage: {fileID: 0}
+  shieldAttack: 0
+  rewardGold: 0
+  rewardGem: 0
+  gem: 0
+  soundType: 2

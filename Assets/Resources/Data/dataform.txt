@@ -1,0 +1,46 @@
+{
+  "playerData": {
+    "level": 0,
+    "playerDamage": 0.0,
+    "gold": 0,
+    "totalExp": 0,
+    "currentExp": 0,
+    "requireExp": 0,
+    "clickPerGold": 0,
+    "clickPerExp": 0,
+    "criticalPercent": 0.0,
+    "criticalPlusDamage": 0.0,
+    "itemDropRate": 0.0,
+    "goldBonus": 0.0,
+    "xpBonus": 0.0,
+    "clickCount": 0,
+    "usingGold": 0,
+    "reinforceCount": 0,
+    "usingGem": 0
+  },
+  "inventoryItem": {
+    "hasItemList": [],
+    "item": {},
+    "equip": null
+  },
+  "stageData": {
+    "maxHp": 0,
+    "currentHp": 0,
+    "eggID": null,
+    "clearStage": 0,
+    "currentStage": 0,
+    "killCount": 0
+  },
+  "upgadeData": {
+    "damageUpLevel": 0,
+    "itemDropRateLevel": 0,
+    "goldBonusLevel": 0,
+    "xpBonusLevel": 0
+  },
+  "questData": {
+    "clickCountQuestLevel": 0,
+    "usingGoldQuestLevel": 0,
+    "reinforceCountGoldQuestLevel": 0,
+    "usingGemQuestLevel": 0
+  }
+}

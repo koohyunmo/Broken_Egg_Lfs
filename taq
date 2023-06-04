@@ -1,0 +1,622 @@
+[33mcommit 8309f73a3a977f72ce6751c3503674a24f9da95f[m[33m ([m[1;36mHEAD -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m)[m
+Author: koo <sd1926@naver.com>
+Date:   Tue Jan 24 23:46:39 2023 +0900
+
+    23-01-24 DateTime
+
+[33mcommit 5e119cf4eed81a7daad07179e120fcb0f9a31844[m
+Author: koo <sd1926@naver.com>
+Date:   Fri Jan 13 08:11:47 2023 +0900
+
+    23-01-23 뽑기테스트
+
+[33mcommit a69afb7544432e813b5509c9d2b6eb99f7887c0d[m
+Author: koo <sd1926@naver.com>
+Date:   Tue Jan 10 18:01:04 2023 +0900
+
+    23-01-10
+
+[33mcommit 507a28a51d867819608aa4fcdbbbbd67e5608c38[m
+Author: koo <sd1926@naver.com>
+Date:   Thu Jan 5 23:57:37 2023 +0900
+
+    23-01-05 광고추가
+
+[33mcommit 1e945a05dcaa74e69fddef6012dfc5efb97d9b17[m
+Author: koo <sd1926@naver.com>
+Date:   Thu Jan 5 20:20:51 2023 +0900
+
+    23-01-05 유니티 에즈 임폴트
+
+[33mcommit 319c68013c090a4c589d4c5978de1308ee27a68b[m
+Author: koo <sd1926@naver.com>
+Date:   Tue Jan 3 21:12:39 2023 +0900
+
+    23-01-03 push
+
+[33mcommit 7eb4ed9440465353842f47b5ddefcd6cd043b389[m
+Author: koo <sd1926@naver.com>
+Date:   Mon Jan 2 17:55:35 2023 +0900
+
+    23-01-02 Information Popup 구현
+
+[33mcommit cd2e5680a77041229f0f385af9917221de2233a3[m
+Author: koo <sd1926@naver.com>
+Date:   Sun Jan 1 12:28:57 2023 +0900
+
+     23-01-01 Stage Up & Down
+
+[33mcommit 8a1b93ef2b40dc81eef7d04e66c0e74774b68439[m
+Author: koo <sd1926@naver.com>
+Date:   Sun Jan 1 00:45:10 2023 +0900
+
+    23-01-01 상점 크래프트 추가
+
+[33mcommit f48ac1fc4227fa7e4fc6cad9df79e40f85bcd14f[m
+Author: koo <sd1926@naver.com>
+Date:   Tue Dec 27 10:41:17 2022 +0900
+
+    22-12-27 Craft_popup
+
+[33mcommit f21b285f5261e48904edd79965ef094aeb016918[m
+Author: koo <sd1926@naver.com>
+Date:   Mon Dec 26 18:45:04 2022 +0900
+
+    22-12-26 레이어 겸치기
+
+[33mcommit 44f84a4bdbb73f5a38ded6ff2e0737f10ba749f9[m
+Author: koo <sd1926@naver.com>
+Date:   Fri Dec 23 03:29:44 2022 +0900
+
+    22-12-23 Loot#1
+
+[33mcommit 7608f19978b5784b881430aa29e918336670d0d8[m
+Author: koo <sd1926@naver.com>
+Date:   Wed Dec 21 22:03:30 2022 +0900
+
+    22-12-21 애니메이션#3
+
+[33mcommit 14f60f95866a1ea348211d126ca90532444c409f[m
+Author: koo <sd1926@naver.com>
+Date:   Tue Dec 20 07:06:48 2022 +0900
+
+    22-12-20 애니메이션#3
+
+[33mcommit 2b4745c949af6d4b2722d919b4c314be3d5ee800[m
+Author: koo <sd1926@naver.com>
+Date:   Tue Dec 20 06:32:23 2022 +0900
+
+    22-12-20 애니메이션#2
+
+[33mcommit 31d2367494c5d15777d3615723b2bc0f4a9807d6[m
+Author: koo <sd1926@naver.com>
+Date:   Tue Dec 20 05:48:31 2022 +0900
+
+    22-12-20 애니메이션
+
+[33mcommit fd1ba90ae5b2ef00ccad9c76cada53e96f75ce90[m
+Author: koo <sd1926@naver.com>
+Date:   Mon Dec 19 23:44:20 2022 +0900
+
+    22-12-19 애니메이션#2
+
+[33mcommit 10f2abeed129690a7f3aec575a45fe8240435837[m
+Merge: 6cd5934 0a8eabc
+Author: koo <sd1926@naver.com>
+Date:   Mon Dec 19 20:48:10 2022 +0900
+
+    Merge branch 'main' of https://github.com/xbeomkingx/Hyper-Money-Games
+
+[33mcommit 6cd59340572832c5840f30c28aefc3ad9f69cd22[m
+Author: koo <sd1926@naver.com>
+Date:   Mon Dec 19 20:48:05 2022 +0900
+
+    22-12-19
+
+[33mcommit 0a8eabc083daff81c357d3c597406c64cc7428af[m
+Author: Koo <sd1926@naver.com>
+Date:   Mon Dec 19 20:20:51 2022 +0900
+
+    22-12-19 애니메이션
+
+[33mcommit ed6d6c43dbc8347e50b9fe695bcce396686e6264[m
+Merge: 5700bd6 d4f82d4
+Author: koo <sd1926@naver.com>
+Date:   Wed Dec 14 02:01:34 2022 +0900
+
+    22-12-14 TestEffect
+
+[33mcommit 5700bd69f2604b548c22eda561c082da4710f263[m
+Author: koo <sd1926@naver.com>
+Date:   Tue Dec 13 16:42:30 2022 +0900
+
+    22-12-03 before pull
+
+[33mcommit d4f82d4efe72980eaa91dc0f71f3e19c11712a10[m
+Author: xbeomkingx <95669490+xbeomkingx@users.noreply.github.com>
+Date:   Tue Dec 13 00:06:44 2022 +0900
+
+    이펙트 넣음 UI 약간 수정
+    
+    이펙트 넣음 UI 약간 수정
+
+[33mcommit 5d0e203caf4bbad0a044e218ae05832d217f8b4a[m
+Author: koo <sd1926@naver.com>
+Date:   Mon Dec 12 17:21:45 2022 +0900
+
+    22-12-12 라인렌더러 테스트
+
+[33mcommit b37cd8d96329da640d36f607ff573deef7782d5c[m
+Author: koo <sd1926@naver.com>
+Date:   Sun Dec 11 23:07:43 2022 +0900
+
+    22-12-11 라인렌더러 테스트
+
+[33mcommit b904e781996a880abe4b1403c0d714055fc1d877[m
+Author: koo <sd1926@naver.com>
+Date:   Sun Dec 11 18:32:29 2022 +0900
+
+    22-12-11 이펙트정리
+
+[33mcommit 5e2fac5883ab2a7e674ffd5c90c6ae63a745d915[m
+Author: koo <sd1926@naver.com>
+Date:   Sat Dec 10 00:10:57 2022 +0900
+
+    22-12-10 UI 수정중 #3 인벤토리 필터
+
+[33mcommit 2dc8943f8ee94bebfd560e038f66e9022cab7474[m
+Author: koo <sd1926@naver.com>
+Date:   Fri Dec 9 20:28:16 2022 +0900
+
+    22-12-09 UI 수정중 #2.5
+
+[33mcommit d88b5227471678573a36cdf948108a4c399bb9a5[m
+Author: koo <sd1926@naver.com>
+Date:   Fri Dec 9 19:41:41 2022 +0900
+
+    22-12-09 UI 수정중 #2
+
+[33mcommit dd22791fba49aac4d2baa1010f7d1313a6d77524[m
+Author: koo <sd1926@naver.com>
+Date:   Fri Dec 9 18:00:06 2022 +0900
+
+    22-12-09 UI 수정중
+
+[33mcommit 807095d3dcf21a1aa14aee7b11d2609ff422edca[m
+Author: koo <sd1926@naver.com>
+Date:   Fri Dec 9 15:11:45 2022 +0900
+
+    22-12-09 UI 수정
+
+[33mcommit 563faa09c9cde1e6558c8f311131749cf28b6680[m
+Author: koo <sd1926@naver.com>
+Date:   Thu Dec 8 12:03:27 2022 +0900
+
+    22-12-08 3D Effect 생성
+
+[33mcommit 8126b4e73414f814bb37826807fe5ce70a71e21f[m
+Author: koo <sd1926@naver.com>
+Date:   Wed Dec 7 18:19:25 2022 +0900
+
+    22-12-07 UI_playpopup + (Egg + EffectTab)
+
+[33mcommit 1f09c24d9e02e78753fb47d38844ae763a871533[m
+Author: koo <sd1926@naver.com>
+Date:   Wed Dec 7 16:09:22 2022 +0900
+
+    22-12-07 빌드테스트(윈도우)
+
+[33mcommit 123822b2dea036d5d22d02248ab93c56bb0859d6[m
+Author: koo <sd1926@naver.com>
+Date:   Tue Dec 6 21:29:15 2022 +0900
+
+    22-12-06 데이터 수정
+
+[33mcommit 669d9da7c15365235e533947419f513299f43ccd[m
+Author: xbeomkingx <95669490+xbeomkingx@users.noreply.github.com>
+Date:   Mon Dec 5 20:19:10 2022 +0900
+
+    에그 데이터
+    
+    에그 데이터
+
+[33mcommit b76f2496e04b2b09e562e1aeb93cf34c6cce633a[m
+Author: koo <sd1926@naver.com>
+Date:   Mon Dec 5 14:13:56 2022 +0900
+
+    22-12-05 SO Editor 추가
+
+[33mcommit 812cea24b2c240f55f1b4171df71f72209b767cd[m
+Author: koo <sd1926@naver.com>
+Date:   Sun Dec 4 08:59:20 2022 +0900
+
+    22-12-04 데이터 추가 남은거 (인벤토리정렬, 파이어베이스 연동, 상점, 이펙트 효과들 )
+
+[33mcommit 1f7effc82dc550b7777f15dfa1fb345d96042866[m
+Author: koo <sd1926@naver.com>
+Date:   Sat Dec 3 18:46:21 2022 +0900
+
+    22-12-03 인벤토리 연결중
+
+[33mcommit c07d3fd8cd95802ee8d9af6ecc80e39cfdcac34f[m
+Author: koo <sd1926@naver.com>
+Date:   Sat Dec 3 14:43:41 2022 +0900
+
+    22-12-03 데이터 연동중[인벤 상점 미완]
+
+[33mcommit ad83970363db10e699ca237ee83d91ff26a96f68[m
+Author: koo <sd1926@naver.com>
+Date:   Fri Dec 2 03:34:42 2022 +0900
+
+    22-12-02 테스트
+
+[33mcommit ac1af306f4ce94a240477b0a7588cb2b0a92ea2e[m
+Merge: e80f4f2 8e57571
+Author: koo <sd1926@naver.com>
+Date:   Tue Nov 29 19:28:26 2022 +0900
+
+    22-11-29 이펙트수정
+
+[33mcommit e80f4f2997fb362a0bccb8f4ebd6c02b218b9660[m
+Author: koo <sd1926@naver.com>
+Date:   Tue Nov 29 19:26:22 2022 +0900
+
+    22-11-28 이펙트 테스트
+
+[33mcommit 8e575715d413d3c42892c7f7e2ef3ce9e402a39d[m
+Author: tmdrn17 <71910803+tmdrn17@users.noreply.github.com>
+Date:   Mon Nov 28 08:36:37 2022 +0900
+
+    조금 수정
+
+[33mcommit 39acd3e4f372e51629208c6c8866daf127b04a68[m
+Author: koo <sd1926@naver.com>
+Date:   Mon Nov 28 05:33:59 2022 +0900
+
+    22-11-28 이펙트 포지션 설정
+
+[33mcommit af9bdb5b0f8561872800d50deda6cb1d94e68337[m
+Author: xbeomkingx <95669490+xbeomkingx@users.noreply.github.com>
+Date:   Sat Nov 26 14:57:09 2022 +0900
+
+    도끼 생성 추가_UI 정리_계란
+    
+    도끼 생성 추가
+    UI 정리
+    계란
+    애드몹
+
+[33mcommit e8de1fd36c92255d5821f5ecf11fc7264e44c2f5[m
+Author: koo <sd1926@naver.com>
+Date:   Wed Nov 23 01:25:37 2022 +0900
+
+    22-11-23 egg 이미지 버그 수정
+
+[33mcommit c62363fbb9b72f405e6cd0d183ead0407e1c34c9[m
+Author: koo <sd1926@naver.com>
+Date:   Tue Nov 22 23:18:12 2022 +0900
+
+    22-11-22 상점 아이콘 변경
+
+[33mcommit ab87c60b117da5c09d1e52756bb17860043cc25a[m
+Merge: 1eb03dc 033b5f0
+Author: koo <sd1926@naver.com>
+Date:   Tue Nov 22 23:12:36 2022 +0900
+
+    Merge branch 'main' of https://github.com/xbeomkingx/Hyper-Money-Games
+
+[33mcommit 1eb03dc018a6a8990d950b53750ca294aba60357[m
+Author: koo <sd1926@naver.com>
+Date:   Tue Nov 22 23:12:32 2022 +0900
+
+    22-11-22 상점 아이콘 변경
+
+[33mcommit 033b5f063b670924df9c6d6ed69da62b3d7bd26f[m
+Author: xbeomkingx <95669490+xbeomkingx@users.noreply.github.com>
+Date:   Tue Nov 22 22:16:58 2022 +0900
+
+    UI 구성 추가 에드몹은 다끝나고(빌드 테스트 후)
+
+[33mcommit e882f89550a704ab7767864ac2aeb2fa80c5f14d[m
+Author: xbeomkingx <95669490+xbeomkingx@users.noreply.github.com>
+Date:   Tue Nov 22 21:21:58 2022 +0900
+
+    이미지랑 화면 변경
+
+[33mcommit 6417c9c0da119f8008d8bb27bfe08ec94a74d72c[m
+Author: tmdrn17 <71910803+tmdrn17@users.noreply.github.com>
+Date:   Sun Nov 20 19:47:33 2022 +0900
+
+    키패드, 메인홀 벽 추가
+
+[33mcommit fa4bc9228b5fbb346fe0ce0a7929fbc2e6b01273[m
+Author: koo <sd1926@naver.com>
+Date:   Sat Nov 19 15:12:07 2022 +0900
+
+    Egg change
+
+[33mcommit 9fc768e2557c6b40b9776ac84170a228c91fa94f[m
+Author: tmdrn17 <71910803+tmdrn17@users.noreply.github.com>
+Date:   Sat Nov 19 15:03:00 2022 +0900
+
+    aaaa
+
+[33mcommit a8390258a2031900aa5c1b9b58aa5b4b0b3ddf69[m
+Author: xbeomkingx <95669490+xbeomkingx@users.noreply.github.com>
+Date:   Fri Nov 18 18:58:29 2022 +0900
+
+    UI추가
+    
+    UI추가
+
+[33mcommit 4d93f1efc90007c690c005b2b3348cd96f25c9ee[m
+Author: xbeomkingx <95669490+xbeomkingx@users.noreply.github.com>
+Date:   Thu Nov 17 23:42:05 2022 +0900
+
+    UI이미지 추가
+    
+    UI이미지 추가
+
+[33mcommit c573612922d198c12a73a891b26f66e21d00e6cb[m
+Author: xbeomkingx <95669490+xbeomkingx@users.noreply.github.com>
+Date:   Thu Nov 17 18:27:34 2022 +0900
+
+    UI설정창
+    
+    UI설정창
+
+[33mcommit 189fd0ec038983491bd187e932a8e01441decb6d[m
+Merge: 2f47918 cab950f
+Author: koo <sd1926@naver.com>
+Date:   Thu Nov 17 17:20:48 2022 +0900
+
+    22-11-17 UI_EffectItem #2 / Effect 선택 구현중
+
+[33mcommit cab950f06dadad97299b1620580f8e4a64b010d6[m
+Author: tmdrn17 <71910803+tmdrn17@users.noreply.github.com>
+Date:   Thu Nov 17 07:34:38 2022 +0900
+
+    달걀 이미지 교체, 카운트 증가
+
+[33mcommit 2f4791883bf00d023e5a97403efd4f3964a62415[m
+Author: koo <sd1926@naver.com>
+Date:   Thu Nov 17 04:13:03 2022 +0900
+
+    22-11-17 UI_EffectItem #1
+
+[33mcommit 84673e85ad9c4f72fb5b54a8221c83e27e6a6b98[m
+Author: koo <sd1926@naver.com>
+Date:   Wed Nov 16 22:18:24 2022 +0900
+
+    22-11-16 UI_PlayPopup #3
+
+[33mcommit dfc8dcf666e9861155924bfc1e1d1cb1c51ea92f[m
+Author: xbeomkingx <95669490+xbeomkingx@users.noreply.github.com>
+Date:   Tue Nov 15 19:13:30 2022 +0900
+
+    easy save3
+    
+    easy save3
+
+[33mcommit 4c1c8603c2e37a6e1e541a3bde48d52a94c98b55[m
+Author: koo <sd1926@naver.com>
+Date:   Mon Nov 14 19:20:35 2022 +0900
+
+    22-11-14 저장/불러오기 대충 구현 #2
+
+[33mcommit b409575bdfd9e7759302ec1402f09cc83fd5f0af[m
+Author: koo <sd1926@naver.com>
+Date:   Mon Nov 14 16:11:31 2022 +0900
+
+    22-11-14 저장/불러오기 대충구현
+
+[33mcommit 4756fda28ab5be5deb0e29ffc7550aebbfbffc99[m
+Author: koo <sd1926@naver.com>
+Date:   Mon Nov 14 15:57:58 2022 +0900
+
+    22-14 저장/불러오기 대충 구현
+
+[33mcommit cc94570d05e8a680bcec88d02eed5283ddd22b63[m
+Author: koo <sd1926@naver.com>
+Date:   Mon Nov 14 15:49:07 2022 +0900
+
+    22-11-14 EggController #3
+
+[33mcommit d6335bd8cc2006068e8e701af7777b765934d5ba[m
+Author: koo <sd1926@naver.com>
+Date:   Mon Nov 14 00:35:13 2022 +0900
+
+    22-11-14 EggController #2
+
+[33mcommit e30cfa63258860c5077b91323e7f50cc2f048949[m
+Author: koo <sd1926@naver.com>
+Date:   Sun Nov 13 20:17:29 2022 +0900
+
+    22-11-13 EggController #1
+
+[33mcommit bf0202e68094a625708f01e6b6d91e958e04acbd[m
+Author: koo <sd1926@naver.com>
+Date:   Sun Nov 6 00:10:05 2022 +0900
+
+    22-11-05 UI_PlayPopup #2
+
+[33mcommit 7c4bd437e4488f2797dac5e5db193d75343c6005[m
+Merge: bcd48bd af995a2
+Author: koo <sd1926@naver.com>
+Date:   Sat Nov 5 21:46:09 2022 +0900
+
+    Merge branch 'main' of https://github.com/xbeomkingx/Hyper-Money-Games
+
+[33mcommit bcd48bd35869b8f1f7296413fb27044d588c86db[m
+Author: koo <sd1926@naver.com>
+Date:   Sat Nov 5 21:18:33 2022 +0900
+
+    22-11-05 UI_PlayPopup #1
+
+[33mcommit af995a2c013e9b67cc2c06348498319ff4c77ad5[m
+Author: xbeomkingx <95669490+xbeomkingx@users.noreply.github.com>
+Date:   Sat Nov 5 19:21:56 2022 +0900
+
+    달걀 추가 및 레이어 조정
+    
+    달걀 추가 및 레이어 조정
+
+[33mcommit 4038e579639e56dacfacfea279dae40289efd4be[m
+Author: koo <sd1926@naver.com>
+Date:   Sat Nov 5 00:58:10 2022 +0900
+
+    22-11-05 씬 merge 오류 수정
+
+[33mcommit c7b6ea9395b3546f3cd2fc9cea3c8974fdb6aebe[m
+Merge: 2ff7125 db5f8c3
+Author: koo <sd1926@naver.com>
+Date:   Fri Nov 4 23:47:07 2022 +0900
+
+    22-11-04 데이터 매니저
+
+[33mcommit db5f8c3adec4d7baacf296f47a7045674ec412cc[m
+Author: xbeomkingx <95669490+xbeomkingx@users.noreply.github.com>
+Date:   Fri Nov 4 16:46:20 2022 +0900
+
+    이펙트 및 종료버튼 추가
+
+[33mcommit fc12caa619129af7757de053afab41fe14b85205[m
+Author: tmdrn17 <71910803+tmdrn17@users.noreply.github.com>
+Date:   Fri Nov 4 07:33:23 2022 +0900
+
+    TestScene
+
+[33mcommit 2ff7125f1348d237792d0d0ca8e3b07e1a87c6af[m
+Author: koo <sd1926@naver.com>
+Date:   Fri Nov 4 02:22:20 2022 +0900
+
+    22-11-04 데이터매니저
+
+[33mcommit c97114f8064577d14f7440806cc4d722cf27eaa2[m
+Author: koo <sd1926@naver.com>
+Date:   Fri Nov 4 00:31:50 2022 +0900
+
+    22-11-04 데이터매니저#1
+
+[33mcommit 5e0ac8930dc8ca3a1b53d689ca10b922400d2737[m
+Author: xbeomkingx <95669490+xbeomkingx@users.noreply.github.com>
+Date:   Thu Nov 3 23:21:43 2022 +0900
+
+    UI 및 해상도 작업
+    
+    UI 및 해상도 작업
+
+[33mcommit 0ff0cbd07e13e3c6481a57676fdc3bd4d778cef5[m
+Author: koo <sd1926@naver.com>
+Date:   Thu Nov 3 01:29:23 2022 +0900
+
+    22-11-03 풀링매니저
+
+[33mcommit 404d0cdfe1cada139679af415fdbe50309e34c24[m
+Author: koo <sd1926@naver.com>
+Date:   Thu Nov 3 01:09:56 2022 +0900
+
+    22-11-03 풀매니저#2
+
+[33mcommit 0735a85c00d50ad5599d015e92a56023c42cc917[m
+Author: koo <sd1926@naver.com>
+Date:   Thu Nov 3 00:52:49 2022 +0900
+
+    22-11-03 풀링 매니저#1
+
+[33mcommit 7793abea9dcf12dd4945de7ef226c9fe007c1ab8[m
+Author: koo <sd1926@naver.com>
+Date:   Wed Nov 2 22:04:31 2022 +0900
+
+    22-11-02 사운드매니저
+
+[33mcommit 5bf50b8f77588ce34ec2fc5d2508c438b1debc48[m
+Author: koo <sd1926@naver.com>
+Date:   Wed Nov 2 21:42:19 2022 +0900
+
+    22-11-02 사운드매니저#2
+
+[33mcommit 7dc3147f633052f56c756a34041a8f54573f09e5[m
+Author: koo <sd1926@naver.com>
+Date:   Wed Nov 2 18:53:25 2022 +0900
+
+    22-11-02 사운드매니저#1
+
+[33mcommit c1266242a7e4e74d43e892e4384d050bcd703353[m
+Author: koo <sd1926@naver.com>
+Date:   Tue Nov 1 22:59:20 2022 +0900
+
+    22-11-01 씬매니저
+
+[33mcommit 6b62be09e04b4e6bac5541fabf4d19901cfb6bfd[m
+Author: koo <sd1926@naver.com>
+Date:   Tue Nov 1 21:06:58 2022 +0900
+
+    22-11-01 UI매니저 코드수정
+
+[33mcommit 21e89f3ba299e1a4d52116b610001b1d075843cd[m
+Merge: 46275fc dd54648
+Author: koo <sd1926@naver.com>
+Date:   Tue Nov 1 21:03:48 2022 +0900
+
+    Merge branch 'main' of https://github.com/xbeomkingx/Hyper-Money-Games
+
+[33mcommit 46275fc2772ace70dd405df328425bee2cde7913[m
+Author: koo <sd1926@naver.com>
+Date:   Tue Nov 1 21:03:40 2022 +0900
+
+    22-11-01 UI매니저 코드수정
+
+[33mcommit dd5464853bc7f08d502efeec134029bd6cf0e178[m
+Author: tmdrn17 <71910803+tmdrn17@users.noreply.github.com>
+Date:   Tue Nov 1 19:46:39 2022 +0900
+
+    Test
+
+[33mcommit e2837b140c71a4073159b02437e26b08791429ea[m
+Author: koo <sd1926@naver.com>
+Date:   Tue Nov 1 03:07:53 2022 +0900
+
+    UI 인벤토리 구현
+
+[33mcommit a054deeaa651350ac28583cbe46165e93b297d23[m
+Author: koo <sd1926@naver.com>
+Date:   Mon Oct 31 17:05:48 2022 +0900
+
+    UI 매니저
+
+[33mcommit 0d852a473a7374782155fab21ce371179fa68d68[m
+Author: koo <sd1926@naver.com>
+Date:   Mon Oct 31 16:32:12 2022 +0900
+
+    UI 매니저 만드는 중
+
+[33mcommit 79d3637e987e7f4abc0c1e6f911a9acbbe1eff75[m
+Author: koo <sd1926@naver.com>
+Date:   Mon Oct 31 15:35:20 2022 +0900
+
+    UI 자동화
+
+[33mcommit a81cd9e5d941e10f4c41fc3903b438c26c85a7bb[m
+Author: koo <sd1926@naver.com>
+Date:   Mon Oct 31 14:16:27 2022 +0900
+
+    UI매니저 만드는중
+
+[33mcommit 37b4e4d5b488ae55c42f730d958b2cea19c9c9ac[m
+Author: koo <sd1926@naver.com>
+Date:   Fri Oct 28 17:08:00 2022 +0900
+
+    20203.17f1
+
+[33mcommit f6c7d3873cba1cfb33053ce9d4734ea95e3d5585[m
+Author: koo <sd1926@naver.com>
+Date:   Fri Oct 28 17:00:39 2022 +0900
+
+    초기화
+
+[33mcommit 97797ef1c2bfe84cf11387a8e5ba16a6ea45590b[m
+Author: xbeomkingx <95669490+xbeomkingx@users.noreply.github.com>
+Date:   Wed Oct 26 20:34:05 2022 +0900
+
+    Initial commit

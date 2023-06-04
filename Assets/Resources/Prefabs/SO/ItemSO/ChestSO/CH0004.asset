@@ -1,0 +1,40 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 28dc2a979db8c3a4aa2a0c68857f4bfb, type: 3}
+  m_Name: CH0004
+  m_EditorClassIdentifier: 
+  itemID: CH0004
+  itemName: Chest4
+  itemDescription: Chest4
+  itemCost: 0
+  itemIcon: {fileID: 21300000, guid: 208da3597d11bd442b305b8b9db5bb64, type: 3}
+  itemBackGroundImage: {fileID: 0}
+  itemType: 4
+  getRouteItemType: 0
+  Grade: 3
+  canDropStage: 0
+  cantDropStage: 0
+  getItemStage: 0
+  effectType: 0
+  damage: 0
+  criticalPercent: 0
+  criticalDamage: 0
+  itemObject: {fileID: 0}
+  itemObjectPath: 
+  itemIconPath: 
+  chestPercent: 2c000000280000000f0000000100000000000000
+  chesOpenImage: {fileID: 21300000, guid: f61a09af48c27c948a6b88265dba3a18, type: 3}
+  shieldAttack: 0
+  rewardGold: 0
+  rewardGem: 0
+  gem: 50
+  soundType: 0

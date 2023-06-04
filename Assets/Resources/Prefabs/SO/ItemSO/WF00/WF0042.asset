@@ -1,0 +1,40 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 28dc2a979db8c3a4aa2a0c68857f4bfb, type: 3}
+  m_Name: WF0042
+  m_EditorClassIdentifier: 
+  itemID: WF0042
+  itemName: Ancient Legendblade
+  itemDescription: 
+  itemCost: 1764049
+  itemIcon: {fileID: 21300000, guid: 43cc2f1b9a3b7854e9698e6ccda23d68, type: 3}
+  itemBackGroundImage: {fileID: 0}
+  itemType: 1
+  getRouteItemType: 0
+  Grade: 5
+  canDropStage: 0
+  cantDropStage: 0
+  getItemStage: 0
+  effectType: 0
+  damage: 90000
+  criticalPercent: 50
+  criticalDamage: 4
+  itemObject: {fileID: 100000, guid: 3136d0e1368895e4ca24a0484734871a, type: 3}
+  itemObjectPath: Prefabs/Effects/FIRE/CFXM_Tornado_Straight_Big
+  itemIconPath: Ancient Legendblade
+  chestPercent: 
+  chesOpenImage: {fileID: 0}
+  shieldAttack: 0
+  rewardGold: 0
+  rewardGem: 0
+  gem: 0
+  soundType: 4

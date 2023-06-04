@@ -1,0 +1,40 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 28dc2a979db8c3a4aa2a0c68857f4bfb, type: 3}
+  m_Name: WF0045
+  m_EditorClassIdentifier: 
+  itemID: WF0045
+  itemName: Celestial Claw
+  itemDescription: 
+  itemCost: 3048277
+  itemIcon: {fileID: 21300000, guid: 2042a06c3e7b7eb41a5103d88963a4b9, type: 3}
+  itemBackGroundImage: {fileID: 0}
+  itemType: 1
+  getRouteItemType: 0
+  Grade: 5
+  canDropStage: 0
+  cantDropStage: 0
+  getItemStage: 0
+  effectType: 0
+  damage: 1000000
+  criticalPercent: 50
+  criticalDamage: 4
+  itemObject: {fileID: 8836493651441161586, guid: 8f66b3d5748a3264dbe2c4dd816664a4, type: 3}
+  itemObjectPath: Prefabs/Effects/FIRE/CFXR3 Hit Magical Stars (Rainbow)
+  itemIconPath: Celestial Claw
+  chestPercent: 
+  chesOpenImage: {fileID: 0}
+  shieldAttack: 0
+  rewardGold: 0
+  rewardGem: 0
+  gem: 0
+  soundType: 8

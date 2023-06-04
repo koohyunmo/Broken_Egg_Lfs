@@ -1,0 +1,83 @@
+{
+  "startStats": [
+    {
+      "playerData": {
+        "level": 1,
+        "playerDamage": 1,
+        "gold": 0,
+        "gem": 0,
+        "totalExp": 0,
+        "currentExp": 0,
+        "requireExp": 0,
+        "clickPerGold": 1,
+        "clickPerExp": 1,
+        "criticalPercent": 10.0,
+        "criticalPlusDamage": 2.0,
+        "itemDropRate": 1,
+        "goldBonus": 1,
+        "xpBonus": 1,
+        "clickCount": 0,
+        "usingGold": 0,
+        "reinforceCount": 0,
+        "usingGem": 0
+      },
+      "inventoryItem": {
+        "hasItemList": [
+          "EF0001"
+        ],
+        "item": {
+          "EF0001": {
+            "itemId": "EF0001",
+            "itemCount": 1,
+            "reinforce": 0,
+            "killedEgg": 0,
+            "itemdamage": 1,
+            "itemCriticalPercent": 1.0,
+            "itemCriticalPlusDamage": 0.1,
+            "itemType": 1,
+            "itemGrade": 1,
+            "itemName": "Punch",
+            "defenseAttack": 1
+
+          }
+        },
+        "equip": "EF0001"
+      },
+      "stageData": {
+        "maxHp": 20,
+        "currentHp": 20,
+        "eggID": "EG0001",
+        "clearStage": 1,
+        "currentStage": 1,
+        "killCount": 0
+
+      },
+      "upgadeData": {
+        "damageUpLevel": 0,
+        "itemDropRateLevel": 0,
+        "goldBonusLevel": 0,
+        "xpBonusLevel": 0
+      },
+      "questData": {
+"clickCountQuestLevel": 0,
+"usingGoldQuestLevel": 0,
+"reinforceCountGoldQuestLevel": 0,
+"usingGemQuestLevel": 0,
+"clickRewardId": "GD0001",
+"usingGoldRewardId": "GM0001",
+"reinforceRewardId": "WF0010",
+"usingGemRewardId": "CH0001"
+      },
+  "marketData": {
+    "currentItem": {},
+    "nextItem": {},
+    "addItem": {},
+	"gemItem": {},
+    "freeResetTime": "0001-01-01T00:00:00",
+    "autoResetTime": "0001-01-01T00:00:00",
+	"adResetTime":"0001-01-01T00:00:00"
+  }
+    }
+  ]
+
+}
