@@ -6,93 +6,151 @@ using UnityEngine;
 
 using UnityEngine;
 using UnityEngine.Purchasing;
+using EasyMobile;
 
 public class IAPController : MonoBehaviour, IStoreListener
 {
     [Header("Product ID")]
     public readonly string productId_test_id = "test_id";
+    public const string productIDConsumable = "consumable";
+    
+    public const string productId_EggPack1 = "eggpack1";
+    public const string productId_EggPack2 = "eggpack2";
+    public const string productId_EggPack3 = "eggpack3";
 
     [Header("Cache")]
-    private IStoreController storeController; //±¸¸Å °úÁ¤À» Á¦¾îÇÏ´Â ÇÔ¼ö Á¦°øÀÚ
-    private IExtensionProvider storeExtensionProvider; //¿©·¯ ÇÃ·§ÆûÀ» À§ÇÑ È®Àå Ã³¸® Á¦°øÀÚ
+    private IStoreController storeController; //êµ¬ë§¤ ê³¼ì •ì„ ì œì–´í•˜ëŠ” í•¨ìˆ˜ ì œê³µì
+    private IExtensionProvider storeExtensionProvider; //ì—¬ëŸ¬ í”Œë«í¼ì„ ìœ„í•œ í™•ì¥ ì²˜ë¦¬ ì œê³µì
 
     Action _iapAction;
 
     private void Start()
     {
-        InitUnityIAP(); //Start ¹®¿¡¼­ ÃÊ±âÈ­ ÇÊ¼ö
+        //InitUnityIAP(); //Start ë¬¸ì—ì„œ ì´ˆê¸°í™” í•„ìˆ˜
+        bool isInitialized = InAppPurchasing.IsInitialized(); //Easy Mobile ì´ˆê¸°í™” ì—¬ë¶€ í™•ì¸
     }
 
-    /* Unity IAP¸¦ ÃÊ±âÈ­ÇÏ´Â ÇÔ¼ö */
+    #region Easy Mobile
+    private void Awake()
+    {
+        if(!RuntimeManager.IsInitialized())
+            RuntimeManager.Init();
+    }
+
+    private void OnEnable()
+    {
+        InAppPurchasing.PurchaseCompleted += PurchasingCompleted;
+        InAppPurchasing.PurchaseFailed += PurchasingFailed;
+    }
+
+    private void OnDisable()
+    {
+        InAppPurchasing.PurchaseCompleted -= PurchasingCompleted;
+        InAppPurchasing.PurchaseFailed -= PurchasingFailed;
+    }
+
+    public void Purchasing(string productId,Action iapAction)
+    {
+        _iapAction = iapAction;
+        switch (productId)
+        {
+            case productId_EggPack1:
+                InAppPurchasing.Purchase(EM_IAPConstants.Product_Egg_Pack1);
+                break;
+            case productId_EggPack2:
+                InAppPurchasing.Purchase(EM_IAPConstants.Product_Egg_Pack2);
+                break;
+            case productId_EggPack3:
+                InAppPurchasing.Purchase(EM_IAPConstants.Product_Egg_Pack3);
+                break;
+        }
+    }
+
+    private void PurchasingFailed(IAPProduct product, string arg2)
+    {
+        NativeUI.Alert("Purchase Failed", "Purchase failed: " + product.Name + "\n" + arg2);
+    }
+
+    private void PurchasingCompleted(IAPProduct product)
+    {
+        _iapAction?.Invoke();
+    }
+    #endregion
+
+    /* Unity IAPë¥¼ ì´ˆê¸°í™”í•˜ëŠ” í•¨ìˆ˜ */
     private void InitUnityIAP()
     {
 
         ConfigurationBuilder builder = ConfigurationBuilder.Instance(StandardPurchasingModule.Instance());
 
-        /* ±¸±Û ÇÃ·¹ÀÌ »óÇ°µé Ãß°¡ */
-        builder.AddProduct(productId_test_id, ProductType.Consumable, new IDs() { { productId_test_id, GooglePlay.Name } });
+        /* êµ¬ê¸€ í”Œë ˆì´ ìƒí’ˆë“¤ ì¶”ê°€ */
+        //builder.AddProduct(productId_test_id, ProductType.Consumable, new IDs() { { productId_test_id, GooglePlay.Name } });
         //builder.AddProduct(productId_test_id2, ProductType.Consumable, new IDs() { { productId_test_id2, GooglePlay.Name } });
+        builder.AddProduct(productIDConsumable, ProductType.Consumable, new IDs() { { productId_EggPack1, GooglePlay.Name } });
+        builder.AddProduct(productIDConsumable, ProductType.Consumable, new IDs() { { productId_EggPack2, GooglePlay.Name } });
+        builder.AddProduct(productIDConsumable, ProductType.Consumable, new IDs() { { productId_EggPack3, GooglePlay.Name } });
 
         UnityPurchasing.Initialize(this, builder);
     }
 
-    /* ±¸¸ÅÇÏ´Â ÇÔ¼ö */
+    /* êµ¬ë§¤í•˜ëŠ” í•¨ìˆ˜ */
     public void Purchase(string productId,Action iapAction)
     {
         Debug.Log(productId);
 
-        Product product = storeController.products.WithID(productId); //»óÇ° Á¤ÀÇ
+        Product product = storeController.products.WithID(productId); //ìƒí’ˆ ì •ì˜
 
-        if (product != null && product.availableToPurchase) //»óÇ°ÀÌ Á¸ÀçÇÏ¸é¼­ ±¸¸Å °¡´ÉÇÏ¸é
+        if (product != null && product.availableToPurchase) //ìƒí’ˆì´ ì¡´ì¬í•˜ë©´ì„œ êµ¬ë§¤ ê°€ëŠ¥í•˜ë©´
         {
             _iapAction -= iapAction;
             _iapAction += iapAction;
-            Debug.Log("±¸¸Å?");
-            storeController.InitiatePurchase(product); //±¸¸Å°¡ °¡´ÉÇÏ¸é ÁøÇà
+            Debug.Log("êµ¬ë§¤?");
+            storeController.InitiatePurchase(product); //êµ¬ë§¤ê°€ ê°€ëŠ¥í•˜ë©´ ì§„í–‰
 
         }
-        else //»óÇ°ÀÌ Á¸ÀçÇÏÁö ¾Ê°Å³ª ±¸¸Å ºÒ°¡´ÉÇÏ¸é
+        else //ìƒí’ˆì´ ì¡´ì¬í•˜ì§€ ì•Šê±°ë‚˜ êµ¬ë§¤ ë¶ˆê°€ëŠ¥í•˜ë©´
         {
-            Debug.Log("»óÇ°ÀÌ ¾ø°Å³ª ÇöÀç ±¸¸Å°¡ ºÒ°¡´ÉÇÕ´Ï´Ù");
+            Debug.Log("ìƒí’ˆì´ ì—†ê±°ë‚˜ í˜„ì¬ êµ¬ë§¤ê°€ ë¶ˆê°€ëŠ¥í•©ë‹ˆë‹¤");
         }
     }
 
     #region Interface
-    /* ÃÊ±âÈ­ ¼º°ø ½Ã ½ÇÇàµÇ´Â ÇÔ¼ö */
+    /* ì´ˆê¸°í™” ì„±ê³µ ì‹œ ì‹¤í–‰ë˜ëŠ” í•¨ìˆ˜ */
     public void OnInitialized(IStoreController controller, IExtensionProvider extension)
     {
-        Debug.Log("ÃÊ±âÈ­¿¡ ¼º°øÇß½À´Ï´Ù");
+        Debug.Log("ì´ˆê¸°í™”ì— ì„±ê³µí–ˆìŠµë‹ˆë‹¤");
 
         storeController = controller;
         storeExtensionProvider = extension;
     }
 
-    /* ÃÊ±âÈ­ ½ÇÆĞ ½Ã ½ÇÇàµÇ´Â ÇÔ¼ö */
+    /* ì´ˆê¸°í™” ì‹¤íŒ¨ ì‹œ ì‹¤í–‰ë˜ëŠ” í•¨ìˆ˜ */
     public void OnInitializeFailed(InitializationFailureReason error)
     {
-        Debug.Log("ÃÊ±âÈ­¿¡ ½ÇÆĞÇß½À´Ï´Ù");
+        Debug.Log("ì´ˆê¸°í™”ì— ì‹¤íŒ¨í–ˆìŠµë‹ˆë‹¤");
     }
 
-    /* ±¸¸Å¿¡ ½ÇÆĞÇßÀ» ¶§ ½ÇÇàµÇ´Â ÇÔ¼ö */
+    /* êµ¬ë§¤ì— ì‹¤íŒ¨í–ˆì„ ë•Œ ì‹¤í–‰ë˜ëŠ” í•¨ìˆ˜ */
     public void OnPurchaseFailed(Product product, PurchaseFailureReason reason)
     {
-        Debug.Log("±¸¸Å¿¡ ½ÇÆĞÇß½À´Ï´Ù");
+        Debug.Log("êµ¬ë§¤ì— ì‹¤íŒ¨í–ˆìŠµë‹ˆë‹¤");
     }
 
-    /* ±¸¸Å¸¦ Ã³¸®ÇÏ´Â ÇÔ¼ö */
+    /* êµ¬ë§¤ë¥¼ ì²˜ë¦¬í•˜ëŠ” í•¨ìˆ˜ */
     public PurchaseProcessingResult ProcessPurchase(PurchaseEventArgs args)
     {
-        Debug.Log("±¸¸Å¿¡ ¼º°øÇß½À´Ï´Ù");
+        Debug.Log("êµ¬ë§¤ì— ì„±ê³µí–ˆìŠµë‹ˆë‹¤");
 
         if (args.purchasedProduct.definition.id == productId_test_id)
         {
-            /* test_id ±¸¸Å Ã³¸® */
-            Debug.Log("±¸¸Å Invoke");
+            /* test_id êµ¬ë§¤ ì²˜ë¦¬ */
+            Debug.Log("êµ¬ë§¤ Invoke");
             _iapAction?.Invoke();
         }
+        _iapAction?.Invoke();
         //else if (args.purchasedProduct.definition.id == productId_test_id2)
         {
-            /* test_id2 ±¸¸Å Ã³¸® */
+            /* test_id2 êµ¬ë§¤ ì²˜ë¦¬ */
         }
 
         return PurchaseProcessingResult.Complete;

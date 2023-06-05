@@ -270,14 +270,14 @@ MonoBehaviour:
     mProducts:
     - _name: Egg Pack1
       _type: 0
-      _id: ' eggpack1'
+      _id: eggpack1
       _price: 
       _description: 
       _storeSpecificIds: []
       _isEditingAdvanced: 0
     - _name: Egg Pack2
       _type: 0
-      _id: ' eggpack2'
+      _id: eggpack2
       _price: 
       _description: 
       _storeSpecificIds: []

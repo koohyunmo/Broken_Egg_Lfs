@@ -13,11 +13,11 @@ public static class Extension
     }
 
     /// <summary>
-    /// ÇØ´ç ¿ÀºêÁ§Æ®¿¡ ÀÌº¥Æ®(Action<PointerEventData>)¸¦ ¸ÅÇÎÇØÁÜ
+    /// í•´ë‹¹ ì˜¤ë¸Œì íŠ¸ì— ì´ë²¤íŠ¸(Action<PointerEventData>)ë¥¼ ë§¤í•‘í•´ì¤Œ
     /// </summary>
     /// <param name="go"></param>
     /// <param name="action"></param>
-    /// <param name="type">defalut typeÀº Å¬¸¯</param>
+    /// <param name="type">defalut typeì€ í´ë¦­</param>
     public static void BindEvent(this GameObject go, Action<PointerEventData> action, Define.UIEvent type = Define.UIEvent.Click)
     {
         UI_Base.BindEvent(go, action, type);
@@ -32,7 +32,7 @@ public static class Extension
     */
 
     /// <summary>
-    /// IsValid »ç¿ëÇÏ¿© ÆÄ±«µÈ °´Ã¼È®ÀÎ, ¿ÀºêÁ§Æ® Ç®¸µÀº null Ã¼Å©¸¸À¸·Î »ı¸íÁÖ±â °ü¸®°¡ Èûµë
+    /// IsValid ì‚¬ìš©í•˜ì—¬ íŒŒê´´ëœ ê°ì²´í™•ì¸, ì˜¤ë¸Œì íŠ¸ í’€ë§ì€ null ì²´í¬ë§Œìœ¼ë¡œ ìƒëª…ì£¼ê¸° ê´€ë¦¬ê°€ í˜ë“¬
     /// </summary>
     /// <param name="go"></param>
     /// <returns></returns>

@@ -42,6 +42,7 @@ public class UI_CashShop_Item : UI_Base
 
        
 
-        GetButton((int)Buttons.CashShop__Buy_Button).gameObject.BindEvent((PointerEventData) => { _iap.Purchase(_id, action); });
+        //GetButton((int)Buttons.CashShop__Buy_Button).gameObject.BindEvent((PointerEventData) => { _iap.Purchase(_id, action); });
+        GetButton((int)Buttons.CashShop__Buy_Button).gameObject.BindEvent((PointerEventData) => { _iap.Purchasing(_id,action); });
     }
 }
