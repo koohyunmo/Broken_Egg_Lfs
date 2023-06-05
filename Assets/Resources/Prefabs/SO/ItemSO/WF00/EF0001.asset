@@ -25,8 +25,8 @@ MonoBehaviour:
   cantDropStage: 0
   getItemStage: 0
   effectType: 1
-  damage: 5
-  criticalPercent: 10
+  damage: 1
+  criticalPercent: 25
   criticalDamage: 1.5
   itemObject: {fileID: 100000, guid: d4a422f3b10693044a6e8e0a486d0120, type: 3}
   itemObjectPath: 

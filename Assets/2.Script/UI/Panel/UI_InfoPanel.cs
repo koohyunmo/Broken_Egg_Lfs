@@ -39,7 +39,6 @@ public class UI_InfoPanel : UI_Base
         else
         {
             _id = Managers.Game.UseEquipment;
-
             if (_id == null)
                 _icon.gameObject.SetActive(false);
             else
@@ -100,7 +99,6 @@ public class UI_InfoPanel : UI_Base
 
 
         GetID(Managers.Game.UseEquipment);
-
         _init = true;
     }
 
@@ -118,8 +116,7 @@ public class UI_InfoPanel : UI_Base
 
 
 
-        _infoTMP.text = $"{Managers.Game.InventoryData.item[_id].itemName} + {Managers.Game.InventoryData.item[_id].reinforce} \n" +
-            $"Damage : {Managers.Game.InventoryData.item[_id].itemDamage}";
+        UpdateText();
 
         OffButtons();
 
@@ -161,7 +158,11 @@ public class UI_InfoPanel : UI_Base
     void UpdateText()
     {
         _infoTMP.text = $"{Managers.Game.InventoryData.item[_id].itemName} + {Managers.Game.InventoryData.item[_id].reinforce} \n" +
-    $"Damage : {Managers.Game.InventoryData.item[_id].itemDamage}";
+    $"Damage : {Managers.Game.InventoryData.item[_id].itemDamage}"+
+    $"\nCri : {(Managers.Game.InventoryData.item[_id].itemCriticalPercent).ToString("F1")}%"+
+    $"\nCri DMG : {(Managers.Game.InventoryData.item[_id].itemCriticalPlusDamage*100).ToString("F1")}%";
+
     }
+
 
 }

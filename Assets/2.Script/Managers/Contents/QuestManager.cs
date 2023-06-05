@@ -28,7 +28,7 @@ public class QuestManager
 
     public int UseGoldQuest()
     {
-        int questPoint = (Managers.Game.QuestData.usingGoldQuestLevel + 1) * (int)Mathf.Pow( 1000,1.4f);
+        int questPoint = (Managers.Game.QuestData.usingGoldQuestLevel + 1) * (int)Mathf.Pow(1000,1.2f);
 
         return questPoint;
     }
@@ -42,7 +42,7 @@ public class QuestManager
 
     public int ReinforceCountQuest()
     {
-        int questPoint = (Managers.Game.QuestData.reinforceCountGoldQuestLevel + 1) * 5;
+        int questPoint = (Managers.Game.QuestData.reinforceCountGoldQuestLevel + 1) * 2;
 
         return questPoint;
     }

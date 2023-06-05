@@ -87,7 +87,6 @@ public class UI_MarketPopup : UI_Popup
             };
 
             Managers.AD.GetMaketAdResetReward(a);
-            Managers.Game.SaveGame("AdButton");
 
         });
 
@@ -101,7 +100,7 @@ public class UI_MarketPopup : UI_Popup
             };
 
             Managers.AD.GetMaketAdResetReward(a);
-            Managers.Game.SaveGame("AdButton");
+            
 
         });
 
@@ -217,21 +216,33 @@ public class UI_MarketPopup : UI_Popup
 
         yield return new WaitForSeconds(0.1f);
 
+        int count = 0;
+
         foreach (string keys in Managers.Game.MarketData.currentItem.Keys)
         {
             GameObject item2 = Managers.UI.MakeSubItem<UI_Market_Item>(gridPanel.transform).gameObject;
             UI_Market_Item market_Item2 = item2.GetOrAddComponent<UI_Market_Item>();
 
+            if (count > 8)
+                break;
 
             // 상점에서만 구매
             if (Managers.Data.ItemDic.TryGetValue(keys, out ItemScriptbale itemSO))
+            {
                 market_Item2.InitData(itemSO, ref UpdateItems, ItemUpdate);
+                count++;
+            }
+                
             else
             {
                 Managers.Resource.Destroy(item2);
                 continue;
             }
+
         }
+
+        yield return new WaitForEndOfFrame();
+        Managers.Game.SaveGame("ChangeMarketItem");
 
     }
 
@@ -279,15 +290,23 @@ public class UI_MarketPopup : UI_Popup
         foreach (Transform child in gridPanel.transform)
             Managers.Resource.Destroy(child.gameObject);
 
+        int count = 0;
+
         foreach (string keys in Managers.Game.MarketData.gemItem.Keys)
         {
             GameObject item2 = Managers.UI.MakeSubItem<UI_Market_GemItem>(gridPanel.transform).gameObject;
             UI_Market_GemItem market_Item2 = item2.GetOrAddComponent<UI_Market_GemItem>();
 
+            if (count > 8)
+                break;
 
             // 상점에서만 구매
             if (Managers.Data.ItemDic.TryGetValue(keys, out ItemScriptbale itemSO))
+            {
                 market_Item2.InitData(itemSO, ref UpdateItems2, ItemUpdate);
+                count++;
+            }
+                
             else
             {
                 Managers.Resource.Destroy(item2);
@@ -295,6 +314,8 @@ public class UI_MarketPopup : UI_Popup
             }
         }
 
+        yield return new WaitForEndOfFrame();
+        Managers.Game.SaveGame("ChangeMarketItem");
     }
 
 

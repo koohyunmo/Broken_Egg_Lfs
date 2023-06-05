@@ -931,7 +931,8 @@ public class GameManagerEx
 
     public void SetCurrentMarketList(Dictionary<string, int> dic)
     {
-        var sortedDict = dic.OrderBy(entry => entry.Value);
+        Managers.Game.MarketData.currentItem.Clear();
+       var sortedDict = dic.OrderBy(entry => entry.Value);
         dic = sortedDict.ToDictionary(entry => entry.Key, entry => entry.Value);
 
         Managers.Game.MarketData.currentItem = dic;
@@ -939,6 +940,7 @@ public class GameManagerEx
 
     public void SetCurrentGemMarketList(Dictionary<string, int> dic)
     {
+        Managers.Game.MarketData.gemItem.Clear();
         var sortedDict = dic.OrderBy(entry => entry.Value);
         dic = sortedDict.ToDictionary(entry => entry.Key, entry => entry.Value);
 

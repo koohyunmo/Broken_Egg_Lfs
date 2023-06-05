@@ -97,16 +97,16 @@ public class MonsterController : MonoBehaviour
                 onHitSound[1] = Managers.Resource.Load<AudioClip>("Sounds/Stab 2_1");
                 break;
             case Define.EffectSound.Sword:
-                onHitSound[0] = Managers.Resource.Load<AudioClip>("Sounds/HIt3");
-                onHitSound[1] = Managers.Resource.Load<AudioClip>("Sounds/HIt3");
+                onHitSound[0] = Managers.Resource.Load<AudioClip>("Sounds/New/Sword");
+                onHitSound[1] = Managers.Resource.Load<AudioClip>("Sounds/New/Sword");
                 break;
             case Define.EffectSound.Staff:
                 onHitSound[0] = Managers.Resource.Load<AudioClip>("Sounds/Magic Element 12");
                 onHitSound[1] = Managers.Resource.Load<AudioClip>("Sounds/Magic Element 12");
                 break;
             case Define.EffectSound.Hammer:
-                onHitSound[0] = Managers.Resource.Load<AudioClip>("Sounds/Metal Weapon Hit Metal 3_1");           
-                onHitSound[1] = Managers.Resource.Load<AudioClip>("Sounds/Metal Weapon Hit Metal 3_1");           
+                onHitSound[0] = Managers.Resource.Load<AudioClip>("Sounds/New/Hammer");           
+                onHitSound[1] = Managers.Resource.Load<AudioClip>("Sounds/New/Hammer");           
                 break;
             case Define.EffectSound.Bow:
                 onHitSound[0] = Managers.Resource.Load<AudioClip>("Sounds/Arrow Fly 1_1");                

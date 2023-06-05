@@ -50,6 +50,8 @@ public class UI_QuestList : UI_Base
 
     GameObject rewardEffect;
 
+    AudioClip _rewardSound;
+
     public void InitData(QuestScriptable qs)
     {
         _icon = qs.questIcon;
@@ -66,6 +68,8 @@ public class UI_QuestList : UI_Base
 
     public override void Init()
     {
+        _rewardSound = Managers.Resource.Load<AudioClip>("Sounds/New/quest Get");
+
         transform.GetComponent<Transform>().localPosition = Vector3.zero;
         transform.GetComponent<Transform>().localScale = new Vector3(1, 1, 1);
 
@@ -92,7 +96,7 @@ public class UI_QuestList : UI_Base
             if (_hasPoint /_maxPoint >= 1)
             {
 
-
+                Managers.Sound.Play(_rewardSound);
                 MakeEffect();
                 QuestLevelUP();
                 UpdateUI();
