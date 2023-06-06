@@ -11,6 +11,9 @@ public class IAPController : MonoBehaviour, IStoreListener
 {
     [Header("Product ID")]
     public readonly string productId_test_id = "test_id";
+    public readonly string productId_egg_01 = "eggpack1";
+    public readonly string productId_egg_02 = "eggpack2";
+    public readonly string productId_egg_03 = "eggpack3";
 
     [Header("Cache")]
     private IStoreController storeController; //구매 과정을 제어하는 함수 제공자
@@ -31,13 +34,16 @@ public class IAPController : MonoBehaviour, IStoreListener
 
         /* 구글 플레이 상품들 추가 */
         builder.AddProduct(productId_test_id, ProductType.Consumable, new IDs() { { productId_test_id, GooglePlay.Name } });
+        builder.AddProduct(productId_egg_01, ProductType.Consumable, new IDs() { { productId_egg_01, GooglePlay.Name } });
+        builder.AddProduct(productId_egg_02, ProductType.Consumable, new IDs() { { productId_egg_02, GooglePlay.Name } });
+        builder.AddProduct(productId_egg_03, ProductType.Consumable, new IDs() { { productId_egg_03, GooglePlay.Name } });
         //builder.AddProduct(productId_test_id2, ProductType.Consumable, new IDs() { { productId_test_id2, GooglePlay.Name } });
 
         UnityPurchasing.Initialize(this, builder);
     }
 
     /* 구매하는 함수 */
-    public void Purchase(string productId,Action iapAction)
+    public void Purchase(string productId, Action iapAction)
     {
         Debug.Log(productId);
 
@@ -87,12 +93,30 @@ public class IAPController : MonoBehaviour, IStoreListener
         if (args.purchasedProduct.definition.id == productId_test_id)
         {
             /* test_id 구매 처리 */
-            Debug.Log("구매 Invoke");
+            Debug.Log($"{productId_test_id}구매 Invoke");
             _iapAction?.Invoke();
+            _iapAction = null;
         }
-        //else if (args.purchasedProduct.definition.id == productId_test_id2)
+        else if (args.purchasedProduct.definition.id == productId_egg_01)
         {
-            /* test_id2 구매 처리 */
+            /* test_id 구매 처리 */
+            Debug.Log($"{productId_egg_01}구매 Invoke");
+            _iapAction?.Invoke();
+            _iapAction = null;
+        }
+        else if (args.purchasedProduct.definition.id == productId_egg_02)
+        {
+            /* test_id 구매 처리 */
+            Debug.Log($"{productId_egg_02}구매 Invoke");
+            _iapAction?.Invoke();
+            _iapAction = null;
+        }
+        else if (args.purchasedProduct.definition.id == productId_egg_03)
+        {
+            /* test_id 구매 처리 */
+            Debug.Log($"{productId_egg_03}구매 Invoke");
+            _iapAction?.Invoke();
+            _iapAction = null;
         }
 
         return PurchaseProcessingResult.Complete;
