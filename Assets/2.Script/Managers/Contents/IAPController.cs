@@ -74,6 +74,7 @@ public class IAPController : MonoBehaviour, IStoreListener
     private void PurchasingCompleted(IAPProduct product)
     {
         _iapAction?.Invoke();
+        _iapAction = null;
     }
     #endregion
 

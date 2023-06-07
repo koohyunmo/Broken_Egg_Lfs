@@ -8,7 +8,7 @@ using System;
 
 public class FireBaseController : MonoBehaviour
 {
-    /*
+    private Firebase.FirebaseApp app;
     private FirebaseAuth auth;
     private FirebaseUser user;
 
@@ -42,6 +42,7 @@ public class FireBaseController : MonoBehaviour
 
     private void FIreBaseInit()
     {
+        app = Firebase.FirebaseApp.DefaultInstance;
         auth = FirebaseAuth.DefaultInstance;
         auth.StateChanged += AuthStateChanged;
 
@@ -84,6 +85,4 @@ public class FireBaseController : MonoBehaviour
             });
 
     }
-    */
-
 }
