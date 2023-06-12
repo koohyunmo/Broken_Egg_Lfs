@@ -19,7 +19,7 @@ public class FireBaseController : MonoBehaviour
             var dependencyStatus = task.Result;
             if(dependencyStatus == Firebase.DependencyStatus.Available)
             {
-                FIreBaseInit();
+                FireBaseInit();
             }
             else
             {
@@ -40,7 +40,7 @@ public class FireBaseController : MonoBehaviour
 
 
 
-    private void FIreBaseInit()
+    private void FireBaseInit()
     {
         app = Firebase.FirebaseApp.DefaultInstance;
         auth = FirebaseAuth.DefaultInstance;

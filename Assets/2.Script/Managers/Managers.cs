@@ -7,11 +7,11 @@ using static Define;
 public class Managers : MonoBehaviour
 {
 
-    // ½Ì±ÛÅæ
-    public static Managers s_instance = null; // À¯ÀÏ¼º º¸Àå
-    public static Managers Instance { get { return s_instance; } } // À¯ÀÏÇÑ ¸Å´ÏÀú¸¦ °®°í¿Â´Ù. ÇÁ·ÎÆÛÆ¼
+    // ì‹±ê¸€í†¤
+    public static Managers s_instance = null; // ìœ ì¼ì„± ë³´ì¥
+    public static Managers Instance { get { return s_instance; } } // ìœ ì¼í•œ ë§¤ë‹ˆì €ë¥¼ ê°–ê³ ì˜¨ë‹¤. í”„ë¡œí¼í‹°
 
-    // ÄÜÅÙÃ÷ ¸Å´ÏÀú(ÀÌ °ÔÀÓ¿¡¸¸ »ç¿ë °¡´É)
+    // ì½˜í…ì¸  ë§¤ë‹ˆì €(ì´ ê²Œì„ì—ë§Œ ì‚¬ìš© ê°€ëŠ¥)
     private static GameManagerEx s_gameManager = new GameManagerEx();
     private static LootManager s_lootManager = new LootManager();
     private static MarketManager2 s_maketManger2 = new MarketManager2();
@@ -21,7 +21,7 @@ public class Managers : MonoBehaviour
     private static ReinforceManager s_reinforceManager = new ReinforceManager();
     private static ChestShopManager s_chestShopManager = new ChestShopManager();
 
-    // ÄÚ¾î ¸Å´ÏÀú(¾îµğµç ¾µ¼öÀÖÀ½)
+    // ì½”ì–´ ë§¤ë‹ˆì €(ì–´ë””ë“  ì“¸ìˆ˜ìˆìŒ)
     private static DataManager s_dataManager = new DataManager();
     private static ResourceManger s_resourceManger = new ResourceManger();
     private static UIManager s_uiManger = new UIManager();
@@ -31,7 +31,7 @@ public class Managers : MonoBehaviour
     private static AdManager s_adManager = new AdManager();
 
 
-    // UI °ÔÀÓµ¥ÀÌÅÍ API DB µî °ü¸® ¸Å´ÏÀú
+    // UI ê²Œì„ë°ì´í„° API DB ë“± ê´€ë¦¬ ë§¤ë‹ˆì €
     public static DataManager Data { get { Init(); return s_dataManager; } }
     public static ResourceManger Resource { get { Init(); return s_resourceManger; } }
     public static UIManager UI { get { Init(); return s_uiManger; } }
@@ -84,7 +84,7 @@ public class Managers : MonoBehaviour
 
         }
 
-        // UI °ÔÀÓµ¥ÀÌÅÍ API DB µî °ü¸® ¸Å´ÏÀú.init()
+        // UI ê²Œì„ë°ì´í„° API DB ë“± ê´€ë¦¬ ë§¤ë‹ˆì €.init()
 
     }
 

@@ -14,7 +14,7 @@ public abstract class BaseScene : MonoBehaviour
     }
     protected virtual void Init()
     {
-        // EventSystemÀÌ ¾øÀ¸¸é UI¿¡·¯
+        // EventSystemì´ ì—†ìœ¼ë©´ UIì—ëŸ¬
         Object obj = GameObject.FindObjectOfType(typeof(EventSystem));
         if (obj == null)
         {
@@ -28,5 +28,5 @@ public abstract class BaseScene : MonoBehaviour
 
 
 
-    // ÀÎÅÍÆäÀÌ½º
+    // ì¸í„°í˜ì´ìŠ¤
 }
