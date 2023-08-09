@@ -41,13 +41,13 @@ public class AdManager
         string adUnitId = "unexpected_platform";
 #endif
 
-        /*
+        
         if (_rewardedAd != null)
         {
             _rewardedAd.Destroy();
             _rewardedAd = null;
         }
-        */
+        
 
         /*
         _interstitialAd = new InterstitialAd(adUnitId);
@@ -111,15 +111,21 @@ public class AdManager
     private void ShowRewardAd(Action rewardedCallback)
     {
         _rewardedCallback = null;
+
+        
         _rewardedCallback = rewardedCallback;
 
-        //CreateAndLoadRewardedAd();
         if (_rewardedAd.IsLoaded())
         {
             _rewardedAd.Show();
+            CreateAndLoadRewardedAd();
         }
         else
+        {
             CreateAndLoadRewardedAd();
+            Debug.LogWarning("Reward Ad not loaded");
+        }
+
     }
 
     public void GetSideButtonReward()

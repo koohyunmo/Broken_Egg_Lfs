@@ -80,6 +80,7 @@ public class Managers : MonoBehaviour
             s_questManager.Init();
             s_reinforceManager.Init();
             s_chestShopManager.Init();
+            s_adManager.Init();
             //s_adManager.Init();
 
         }

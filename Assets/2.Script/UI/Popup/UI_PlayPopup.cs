@@ -245,7 +245,7 @@ public class UI_PlayPopup : UI_Popup
 
 
         // 광고 버튼
-        //GetButton((int)Buttons.AdButtonSide).gameObject.BindEvent((PointerEventData ped) => { Managers.AD.GetSideButtonReward(); });
+        GetButton((int)Buttons.AdButtonSide).gameObject.BindEvent((PointerEventData ped) => { Managers.AD.GetSideButtonReward(); });
 
 
         Managers.Sound.SetBGMVolume(0.5f);
