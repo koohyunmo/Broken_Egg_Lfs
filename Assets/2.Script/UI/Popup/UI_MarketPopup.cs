@@ -77,19 +77,24 @@ public class UI_MarketPopup : UI_Popup
 
         UpdateTimerUI();
 
-        /*GetButton((int)Buttons.AdResetButton).gameObject.BindEvent((PointerEventData) => {
-            Action a = () =>
-            {
-                Managers.Market.ClickAdList(); 
-                //MarketItemListUpdate();
-                UpdateTimerUI();
-                MarketItemUpdate();
-                
-            };
 
-            //Managers.AD.GetMaketAdResetReward(a);
+        Action a = () =>
+        {
+            Managers.Market.ClickAdList();
+            //MarketItemListUpdate();
+            UpdateTimerUI();
+            MarketItemUpdate();
 
-        });*/
+        };
+
+        GetButton((int)Buttons.AdResetButton).gameObject.BindEvent((PointerEventData) => {
+
+
+            Managers.AD.GetMaketAdResetReward(a);
+
+        });
+
+        /*
         GetButton((int)Buttons.AdResetButton).onClick.RemoveAllListeners();
         GetButton((int)Buttons.AdResetButton).onClick.AddListener(() =>
         {
@@ -100,20 +105,23 @@ public class UI_MarketPopup : UI_Popup
             _adPopupController.GetReward(3);
         });
         GetButton((int)Buttons.AdResetButton).interactable = false;
+        */
 
-        /*GetButton((int)Buttons.AdGemResetButton).gameObject.BindEvent((PointerEventData) => {
-            Action a = () =>
-            {
-                Managers.Market.ClickGemAdList(); 
-                MarketGemItemUpdate();
-                UpdateTimerUI();
-                MarketItemUpdate();
-            };
+        Action a2 = () =>
+        {
+            Managers.Market.ClickGemAdList();
+            MarketGemItemUpdate();
+            UpdateTimerUI();
+            MarketItemUpdate();
+        };
 
-            //Managers.AD.GetMaketAdResetReward(a);
-            
+        GetButton((int)Buttons.AdGemResetButton).gameObject.BindEvent((PointerEventData) => {
 
-        });*/
+            Managers.AD.GetMaketAdResetReward(a2);
+
+        });
+
+        /*
         GetButton((int)Buttons.AdGemResetButton).onClick.RemoveAllListeners();
         GetButton((int)Buttons.AdGemResetButton).onClick.AddListener(() =>
         {
@@ -124,6 +132,7 @@ public class UI_MarketPopup : UI_Popup
             _adPopupController.GetReward(4);
         });
         GetButton((int)Buttons.AdGemResetButton).interactable = false;
+        */
 
 
 

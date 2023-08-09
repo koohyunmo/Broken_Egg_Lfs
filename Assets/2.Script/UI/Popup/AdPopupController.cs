@@ -13,6 +13,8 @@ public class AdPopupController : MonoBehaviour
 
     private void Start()
     {
+        return;
+
         StartCoroutine(GemReward());
         StartCoroutine(GoldReward());
         StartCoroutine(ChestReward());
