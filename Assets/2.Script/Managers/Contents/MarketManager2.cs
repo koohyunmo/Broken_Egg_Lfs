@@ -8,15 +8,15 @@ public class MarketManager2
 {
 
     /// <summary>
-    /// »ı¼º¿ë ÀĞ±â ¤¤¤¤
+    /// ìƒì„±ìš© ì½ê¸° ã„´ã„´
     /// </summary>
     private Dictionary<string, int> _currentItemList = new Dictionary<string, int>();
     /// <summary>
-    /// »ı¼º¿ë ÀĞ±â ¤¤¤¤
+    /// ìƒì„±ìš© ì½ê¸° ã„´ã„´
     /// </summary>
     private Dictionary<string, int> _nextItemList = new Dictionary<string, int>();
     /// <summary>
-    /// »ı¼º¿ë ÀĞ±â ¤¤¤¤
+    /// ìƒì„±ìš© ì½ê¸° ã„´ã„´
     /// </summary>
     private Dictionary<string, int> _addItemList = new Dictionary<string, int>();
     private Dictionary<string, int> _gemItemList = new Dictionary<string, int>();
@@ -441,10 +441,10 @@ public class MarketManager2
         }
 
         /*
-        // LINQ¸¦ »ç¿ëÇÏ¿© Dictionary ³»¸²Â÷¼ø Á¤·Ä
+        // LINQë¥¼ ì‚¬ìš©í•˜ì—¬ Dictionary ë‚´ë¦¼ì°¨ìˆœ ì •ë ¬
         var sortedDict = from entry in dic orderby (int)Managers.Data.ItemSO[entry.Key].Grade descending select entry;
 
-        // °á°ú Ãâ·Â
+        // ê²°ê³¼ ì¶œë ¥
         foreach (KeyValuePair<string, int> item in sortedDict)
         {
             Debug.Log($"{item.Key}: {item.Value}");

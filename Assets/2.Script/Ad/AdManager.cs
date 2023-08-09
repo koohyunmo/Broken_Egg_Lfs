@@ -81,22 +81,22 @@ public class AdManager
         Debug.Log("Reward Ad Close");
     }
 
-    public void HandleOnAdLoaded(object sender, EventArgs args)
+    private void HandleOnAdLoaded(object sender, EventArgs args)
     {
         Debug.Log("HandleAdLoaded");
     }
 
-    public void HandleOnAdFailedToLoad(object sender, EventArgs args)
+    private void HandleOnAdFailedToLoad(object sender, EventArgs args)
     {
         Debug.Log($"HandleFailedToReceiveAd : {args}");
     }
 
-    public void HandleOnAdOpened(object sender, EventArgs args)
+    private void HandleOnAdOpened(object sender, EventArgs args)
     {
         Debug.Log("HandleAdOpened");
     }
 
-    public void HandleOnAdClosed(object sender, EventArgs args)
+    private void HandleOnAdClosed(object sender, EventArgs args)
     {
         Debug.Log("HandleAdClosed");
     }
@@ -108,7 +108,7 @@ public class AdManager
         _rewardedCallback = null;
     }
 
-    public void ShowRewardAd(Action rewardedCallback)
+    private void ShowRewardAd(Action rewardedCallback)
     {
         _rewardedCallback = null;
         _rewardedCallback = rewardedCallback;

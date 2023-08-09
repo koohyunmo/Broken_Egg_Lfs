@@ -145,7 +145,7 @@ public class UI_DynamicGacha : UI_PopupWithItem
 
         // Event
 
-        // ³ªÁß¿¡ ¹öÆ° º¯°æ
+        // ë‚˜ì¤‘ì— ë²„íŠ¼ ë³€ê²½
         _button.gameObject.BindEvent((PointerEventData) =>
         {
             if (Managers.Chest.ChestCount(_chesthId) <= 0)
@@ -196,8 +196,8 @@ public class UI_DynamicGacha : UI_PopupWithItem
     IEnumerator co_Sound()
     {
 
-        // 3ÃÊ ´ÝÈû
-        // 2ÃÊ ¿­¸²
+        // 3ì´ˆ ë‹«íž˜
+        // 2ì´ˆ ì—´ë¦¼
 
         Managers.Sound.Play(_chestHitSound, Define.Sound.Chest);
         yield return new WaitForSeconds(1f);
@@ -230,14 +230,14 @@ public class UI_DynamicGacha : UI_PopupWithItem
 
     }
 
-    // ºû³ª´Â ÀÌÆåÆ® È°¼ºÈ­
-    // »óÀÚ Èçµé¸²
-    // »óÀÚ ¿­¸²
-    // ¿ø¼Òµé ¹ß»ç
-    // ¿ø¼Òµé À§Ä¡¿¡ µµÂø
-    // ¿ø¼Òµé Ä«µå·Î º¯ÇÔ
+    // ë¹›ë‚˜ëŠ” ì´íŽ™íŠ¸ í™œì„±í™”
+    // ìƒìž í”ë“¤ë¦¼
+    // ìƒìž ì—´ë¦¼
+    // ì›ì†Œë“¤ ë°œì‚¬
+    // ì›ì†Œë“¤ ìœ„ì¹˜ì— ë„ì°©
+    // ì›ì†Œë“¤ ì¹´ë“œë¡œ ë³€í•¨
 
-    #region Àç±Í¹öÀü
+    #region ìž¬ê·€ë²„ì „
     public void OpenEffect()
     {
 
@@ -258,32 +258,32 @@ public class UI_DynamicGacha : UI_PopupWithItem
             });
         }
 
-        // ºû³ª´Â ÀÌÆåÆ® È°¼ºÈ­
-        // »óÀÚ Èçµé¸²
-        // »óÀÚ ¿­¸²
-        // ¿ø¼Òµé ¹ß»ç
-        // ¿ø¼Òµé À§Ä¡¿¡ µµÂø
-        // ¿ø¼Òµé Ä«µå·Î º¯ÇÔ
+        // ë¹›ë‚˜ëŠ” ì´íŽ™íŠ¸ í™œì„±í™”
+        // ìƒìž í”ë“¤ë¦¼
+        // ìƒìž ì—´ë¦¼
+        // ì›ì†Œë“¤ ë°œì‚¬
+        // ì›ì†Œë“¤ ìœ„ì¹˜ì— ë„ì°©
+        // ì›ì†Œë“¤ ì¹´ë“œë¡œ ë³€í•¨
 
     }
     IEnumerator c_Clear()
     {
 
-        // »óÀÚ ÃÊ±âÈ­
+        // ìƒìž ì´ˆê¸°í™”
         _chestImage.sprite = _chestSprite;
         _isOpen = false;
 
-        // ºû³ª´Â ÀÌÆåÆ® Á¦°Å
+        // ë¹›ë‚˜ëŠ” ì´íŽ™íŠ¸ ì œê±°
         Destroy(_shineEffect);
 
         yield return new WaitForSeconds(0.5f);
 
-        // ´Ù½Ã ¿­¸± ¼ö ÀÖµµ·Ï Àç±Í È£Ãâ
+        // ë‹¤ì‹œ ì—´ë¦´ ìˆ˜ ìžˆë„ë¡ ìž¬ê·€ í˜¸ì¶œ
         OpenEffect();
     }
     #endregion
 
-    #region ºñ Àç±Í ¹öÀü
+    #region ë¹„ ìž¬ê·€ ë²„ì „
     public void OpenEffect2()
     {
         Managers.Chest.Open(_chesthId);

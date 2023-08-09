@@ -110,8 +110,8 @@ public class UI_Market_Item : UI_Base
 
        
         button = GetButton((int)Buttons.MarketBuyButton);
-        button.gameObject.BindEvent(OnClickBuyButton); // extension �޼ҵ�
-        _goldSlider = Get<Slider>((int)Sliders.GoldSlider); // extension �޼ҵ�
+        button.gameObject.BindEvent(OnClickBuyButton); // extension 메소드
+        _goldSlider = Get<Slider>((int)Sliders.GoldSlider); // extension 메소드
         GetParent();
 
         this.gameObject.GetComponent<Transform>().localScale = new Vector3(1, 1, 1);

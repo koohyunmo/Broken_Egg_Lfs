@@ -1,14 +1,14 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
 public class UI_Ad_Bonus : UI_Base
 {
-
+    [SerializeField] AdPopupController _adPopupController;
     
-
     public enum ADType
     {
         Gem,
@@ -64,12 +64,21 @@ public class UI_Ad_Bonus : UI_Base
             Managers.Game.Additem(rewardId);
         };
 
-
-        GetButton((int)Buttons.Ad_Front_Button).gameObject.BindEvent((PointerEventData data) => {
-
-            Managers.AD.GetMaketAdResetReward(a);
+        /*GetButton((int)Buttons.Ad_Front_Button).gameObject.BindEvent((PointerEventData data) => {
+            
+            //Managers.AD.GetMaketAdResetReward(a);
+            a.Invoke();
             Managers.Game.SaveGame("AdButton");
 
+        });*/
+        GetButton((int)Buttons.Ad_Front_Button).onClick.RemoveAllListeners();
+        GetButton((int)Buttons.Ad_Front_Button).onClick.AddListener(() =>
+        {
+            _adPopupController.GetReward((int)_type);
+            a.Invoke();
+            Managers.Game.SaveGame("AdButton");
         });
+        
+        GetButton((int)Buttons.Ad_Front_Button).interactable = false;
     }
 }

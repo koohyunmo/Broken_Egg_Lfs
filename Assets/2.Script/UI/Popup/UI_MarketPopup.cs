@@ -6,6 +6,7 @@ using UnityEngine.EventSystems;
 
 public class UI_MarketPopup : UI_Popup
 {
+    [SerializeField] private AdPopupController _adPopupController;
     enum GameObjects
     {
         MarketPanel,
@@ -76,7 +77,7 @@ public class UI_MarketPopup : UI_Popup
 
         UpdateTimerUI();
 
-        GetButton((int)Buttons.AdResetButton).gameObject.BindEvent((PointerEventData) => {
+        /*GetButton((int)Buttons.AdResetButton).gameObject.BindEvent((PointerEventData) => {
             Action a = () =>
             {
                 Managers.Market.ClickAdList(); 
@@ -86,11 +87,21 @@ public class UI_MarketPopup : UI_Popup
                 
             };
 
-            Managers.AD.GetMaketAdResetReward(a);
+            //Managers.AD.GetMaketAdResetReward(a);
 
+        });*/
+        GetButton((int)Buttons.AdResetButton).onClick.RemoveAllListeners();
+        GetButton((int)Buttons.AdResetButton).onClick.AddListener(() =>
+        {
+            Managers.Market.ClickAdList(); 
+            //MarketItemListUpdate();
+            UpdateTimerUI();
+            MarketItemUpdate();
+            _adPopupController.GetReward(3);
         });
+        GetButton((int)Buttons.AdResetButton).interactable = false;
 
-        GetButton((int)Buttons.AdGemResetButton).gameObject.BindEvent((PointerEventData) => {
+        /*GetButton((int)Buttons.AdGemResetButton).gameObject.BindEvent((PointerEventData) => {
             Action a = () =>
             {
                 Managers.Market.ClickGemAdList(); 
@@ -99,10 +110,20 @@ public class UI_MarketPopup : UI_Popup
                 MarketItemUpdate();
             };
 
-            Managers.AD.GetMaketAdResetReward(a);
+            //Managers.AD.GetMaketAdResetReward(a);
             
 
+        });*/
+        GetButton((int)Buttons.AdGemResetButton).onClick.RemoveAllListeners();
+        GetButton((int)Buttons.AdGemResetButton).onClick.AddListener(() =>
+        {
+            Managers.Market.ClickGemAdList(); 
+            MarketGemItemUpdate();
+            UpdateTimerUI();
+            MarketItemUpdate();
+            _adPopupController.GetReward(4);
         });
+        GetButton((int)Buttons.AdGemResetButton).interactable = false;
 
 
 
@@ -188,7 +209,7 @@ public class UI_MarketPopup : UI_Popup
         //    UI_Market_Item market_Item2 = item2.GetOrAddComponent<UI_Market_Item>();
 
 
-        //    // »óÁ¡¿¡¼­¸¸ ±¸¸Å
+        //    // ìƒì ì—ì„œë§Œ êµ¬ë§¤
         //    if (Managers.Data.ItemDic.TryGetValue(keys, out ItemScriptbale itemSO))
         //        market_Item2.InitData(itemSO, ref UpdateItems, ItemUpdate);
         //    else
@@ -226,7 +247,7 @@ public class UI_MarketPopup : UI_Popup
             if (count > 8)
                 break;
 
-            // »óÁ¡¿¡¼­¸¸ ±¸¸Å
+            // ìƒì ì—ì„œë§Œ êµ¬ë§¤
             if (Managers.Data.ItemDic.TryGetValue(keys, out ItemScriptbale itemSO))
             {
                 market_Item2.InitData(itemSO, ref UpdateItems, ItemUpdate);
@@ -263,7 +284,7 @@ public class UI_MarketPopup : UI_Popup
             UI_SpecialItem market_Item2 = item2.GetOrAddComponent<UI_SpecialItem>();
 
 
-            // »óÁ¡¿¡¼­¸¸ ±¸¸Å
+            // ìƒì ì—ì„œë§Œ êµ¬ë§¤
             if (Managers.Data.ItemDic.TryGetValue(keys, out ItemScriptbale itemSO))
                 market_Item2.InitData(itemSO);
             else
@@ -300,7 +321,7 @@ public class UI_MarketPopup : UI_Popup
             if (count > 8)
                 break;
 
-            // »óÁ¡¿¡¼­¸¸ ±¸¸Å
+            // ìƒì ì—ì„œë§Œ êµ¬ë§¤
             if (Managers.Data.ItemDic.TryGetValue(keys, out ItemScriptbale itemSO))
             {
                 market_Item2.InitData(itemSO, ref UpdateItems2, ItemUpdate);
@@ -338,7 +359,7 @@ public class UI_MarketPopup : UI_Popup
         //    UI_Market_GemItem market_Item2 = item2.GetOrAddComponent<UI_Market_GemItem>();
 
 
-        //    // »óÁ¡¿¡¼­¸¸ ±¸¸Å
+        //    // ìƒì ì—ì„œë§Œ êµ¬ë§¤
         //    if (Managers.Data.ItemDic.TryGetValue(keys, out ItemScriptbale itemSO))
         //        market_Item2.InitData(itemSO, ref UpdateItems2, ItemUpdate);
         //    else

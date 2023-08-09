@@ -23,9 +23,9 @@ public class GameData
 
 public class GameManagerEx
 {
-    public string UseEquipment { get { return _gameData.inventoryItem.equip; } private set { } } // ÇöÀç »ç¿ëÁßÀÎ ÀÌÆåÆ® ID
+    public string UseEquipment { get { return _gameData.inventoryItem.equip; } private set { } } // í˜„ì¬ ì‚¬ìš©ì¤‘ì¸ ì´í™íŠ¸ ID
 
-    GameData _gameData = new GameData(); // ÇÃ·¹ÀÌ¾î µ¥ÀÌÅÍ
+    GameData _gameData = new GameData(); // í”Œë ˆì´ì–´ ë°ì´í„°
     public GameData SaveData { get { return _gameData; } private set { _gameData = value; } }
     public long Gold
     {
@@ -41,7 +41,7 @@ public class GameManagerEx
         }
         private set
         {
-            _gameData.playerData.gold = value;/*UI ÃÊ±âÈ­*/
+            _gameData.playerData.gold = value;/*UI ì´ˆê¸°í™”*/
         }
     }
 
@@ -62,13 +62,13 @@ public class GameManagerEx
                 _gameData.playerData.level = value;
                 LevelAction?.Invoke();
             }
-            /*UI ÃÊ±âÈ­*/
+            /*UI ì´ˆê¸°í™”*/
         }
     }
-    public InventoryData InventoryData { get { return _gameData.inventoryItem; } private set { _gameData.inventoryItem = value;  /*UI ÃÊ±âÈ­*/} }
-    public StageData StageData { get { return _gameData.stageData; } private set { _gameData.stageData = value;  /*UI ÃÊ±âÈ­*/} }
-    public QuestData QuestData { get { return _gameData.questData; } private set { _gameData.questData = value;  /*UI ÃÊ±âÈ­*/} }
-    //public EquipmentData EquipmentData { get { return _gameData._equipmentData; } private set { _gameData._equipmentData = value;  /*UI ÃÊ±âÈ­*/} }
+    public InventoryData InventoryData { get { return _gameData.inventoryItem; } private set { _gameData.inventoryItem = value;  /*UI ì´ˆê¸°í™”*/} }
+    public StageData StageData { get { return _gameData.stageData; } private set { _gameData.stageData = value;  /*UI ì´ˆê¸°í™”*/} }
+    public QuestData QuestData { get { return _gameData.questData; } private set { _gameData.questData = value;  /*UI ì´ˆê¸°í™”*/} }
+    //public EquipmentData EquipmentData { get { return _gameData._equipmentData; } private set { _gameData._equipmentData = value;  /*UI ì´ˆê¸°í™”*/} }
     public float PlayerDamage { get { return _gameData.playerData.playerDamage; } private set { _gameData.playerData.playerDamage = value; } }
     public PlayerData PlayerData { get { return _gameData.playerData; } }
     public UpgadeData PlayerUpgradeData { get { return _gameData.upgadeData; } private set { _gameData.upgadeData = value; } }
@@ -102,14 +102,14 @@ public class GameManagerEx
 
 
 
-    #region ½ºÆù º¯¼ö[¾È¾¸]
+    #region ìŠ¤í° ë³€ìˆ˜[ì•ˆì”€]
     GameObject _players;
     string eggPath = "/Eggs/Egg";
     HashSet<GameObject> _eggs = new HashSet<GameObject>();
     #endregion
-    #region ¸¸¾àÀ» À§ÇØ ¸¸µç ½ºÆù
+    #region ë§Œì•½ì„ ìœ„í•´ ë§Œë“  ìŠ¤í°
     /// <summary>
-    /// °ÔÀÓ ¿ÀºêÁ§Æ® ½ºÆù»ı¼º
+    /// ê²Œì„ ì˜¤ë¸Œì íŠ¸ ìŠ¤í°ìƒì„±
     /// </summary>
     /// <param name="type"></param>
     /// <param name="path"></param>
@@ -138,7 +138,7 @@ public class GameManagerEx
     }
 
     /// <summary>
-    /// ÇØ´ç °ÔÀÓ¿ÀºêÁ§Æ®ÀÇ Define.WorldObjects Å¸ÀÔÀ» È®ÀÎ.
+    /// í•´ë‹¹ ê²Œì„ì˜¤ë¸Œì íŠ¸ì˜ Define.WorldObjects íƒ€ì…ì„ í™•ì¸.
     /// </summary>
     /// <param name="go"></param>
     /// <returns></returns>
@@ -152,7 +152,7 @@ public class GameManagerEx
         return bs._contentType;
     }
     /// <summary>
-    /// ½ºÆù»ı¼ºµÈ ¿ÀºêÁ§Æ® Destroy
+    /// ìŠ¤í°ìƒì„±ëœ ì˜¤ë¸Œì íŠ¸ Destroy
     /// </summary>
     /// <param name="go"></param>
     public void Despawn(GameObject go)
@@ -273,7 +273,7 @@ public class GameManagerEx
     public void EggKill()
     {
 
-        if (StageData.currentStage % 5 == 0) // 5½ºÅ×ÀÌÁö¸¶´Ù º¸½º ½ºÅ×ÀÌÁö·Î Ã¼Å©
+        if (StageData.currentStage % 5 == 0) // 5ìŠ¤í…Œì´ì§€ë§ˆë‹¤ ë³´ìŠ¤ ìŠ¤í…Œì´ì§€ë¡œ ì²´í¬
         {
             if (StageData.clearStage == StageData.currentStage)
             {
@@ -536,7 +536,7 @@ public class GameManagerEx
             if (_gameData.inventoryItem.item.TryGetValue(id, out ItemData itemData))
             {
                 _gameData.inventoryItem.item[id].itemCount += count;
-                //Debug.Log($"{id} : (Áßº¹!)°¹¼ö Ãß°¡ ÃÑ °¹¼ö : {_gameData.inventoryItem.item[id].itemCount}");
+                //Debug.Log($"{id} : (ì¤‘ë³µ!)ê°¯ìˆ˜ ì¶”ê°€ ì´ ê°¯ìˆ˜ : {_gameData.inventoryItem.item[id].itemCount}");
 
             }
             else
@@ -553,7 +553,7 @@ public class GameManagerEx
                 _gameData.inventoryItem.item[id].itemName = Managers.Data.ItemDic[id].itemName;
                 _gameData.inventoryItem.item[id].itemGrade = Managers.Data.ItemDic[id].Grade;
                 _gameData.inventoryItem.item[id].shieldAttack = SheildAttack(Managers.Data.ItemDic[id].Grade);
-                //Debug.Log($"{id} : ¾ÆÀÌÅÛ Ãß°¡");
+                //Debug.Log($"{id} : ì•„ì´í…œ ì¶”ê°€");
             }
         }
 
@@ -615,7 +615,7 @@ public class GameManagerEx
         if (_gameData.inventoryItem.item.TryGetValue(id, out ItemData getsu))
         {
             _gameData.inventoryItem.item[id].itemCount++;
-            Debug.Log($"{id} : (Áßº¹!)°¹¼ö Ãß°¡ ÃÑ °¹¼ö : {_gameData.inventoryItem.item[id].itemCount}");
+            Debug.Log($"{id} : (ì¤‘ë³µ!)ê°¯ìˆ˜ ì¶”ê°€ ì´ ê°¯ìˆ˜ : {_gameData.inventoryItem.item[id].itemCount}");
 
         }
         else
@@ -636,7 +636,7 @@ public class GameManagerEx
                 _gameData.inventoryItem.item[id].shieldAttack = SheildAttack(Managers.Data.ItemDic[id].Grade);
             }
 
-            Debug.Log($"{id} : Weapon Ãß°¡");
+            Debug.Log($"{id} : Weapon ì¶”ê°€");
         }
 
     }
@@ -671,7 +671,7 @@ public class GameManagerEx
 
     }
 
-    // ÇÃ·¹ÀÌ¾î µ¥ÀÌÅÍ Ãß°¡
+    // í”Œë ˆì´ì–´ ë°ì´í„° ì¶”ê°€
     public void UpgradePlayerDamageUp()
     {
         _gameData.playerData.playerDamage += 0.1f;
@@ -993,31 +993,31 @@ public class GameManagerEx
     #region Data
 
 
-    // ½ÃÀÛ µ¥ÀÌÅÍ
+    // ì‹œì‘ ë°ì´í„°
     public void FirstStartStat()
     {
         Debug.Log($"Start Data init");
         StartStat startStat = Managers.Data._startStatDic[1];
 
-        // ÇÃ·¹ÀÌ¾î µ¥ÀÌÅÍ
+        // í”Œë ˆì´ì–´ ë°ì´í„°
         _gameData.playerData = startStat.playerData;
 
-        // ÀÎº¥Åä¸®
+        // ì¸ë²¤í† ë¦¬
         _gameData.inventoryItem = startStat.inventoryItem;
 
-        // ½ºÅ×ÀÌÁö Á¤º¸
+        // ìŠ¤í…Œì´ì§€ ì •ë³´
         _gameData.stageData = startStat.stageData;
 
-        // ÀÌÆåÆ® Á¤º¸
+        // ì´í™íŠ¸ ì •ë³´
         _gameData.inventoryItem.equip = startStat.inventoryItem.equip;
 
-        // ¾÷±×·¹ÀÌµå µ¥ÀÌÅÍ
+        // ì—…ê·¸ë ˆì´ë“œ ë°ì´í„°
         _gameData.upgadeData = startStat.upgadeData;
 
-        // Äù½ºÆ® µ¥ÀÌÅÍ
+        // í€˜ìŠ¤íŠ¸ ë°ì´í„°
         _gameData.questData = startStat.questData;
 
-        // Äù½ºÆ® µ¥ÀÌÅÍ
+        // í€˜ìŠ¤íŠ¸ ë°ì´í„°
         _gameData.marketData = startStat.marketData;
 
 
@@ -1028,7 +1028,7 @@ public class GameManagerEx
 
     }
 
-    // ¸ğµç µ¥ÀÌÅÍ ¾÷µ¥ÀÌÆ®ÈÄ ÀúÀå
+    // ëª¨ë“  ë°ì´í„° ì—…ë°ì´íŠ¸í›„ ì €ì¥
     public void AllDataRefreshAndSaveGame()
     {
         GameDataRefresh();
@@ -1039,7 +1039,7 @@ public class GameManagerEx
 
         Managers.Game.SaveGame("AllDataRefreshAndSaveGame()");
     }
-    // ¸ğµç µ¥ÀÌÅÍ ¾÷µ¥ÀÌÆ®
+    // ëª¨ë“  ë°ì´í„° ì—…ë°ì´íŠ¸
     public void AllDataRefresh()
     {
         GameDataRefresh();
@@ -1056,7 +1056,7 @@ public class GameManagerEx
         PlayerUpgradeData = _gameData.upgadeData;
     }
 
-    // ÇÃ·¹ÀÌ¾î µ¥ÀÌÅÍ ¾÷µ¥ÀÌÆ®
+    // í”Œë ˆì´ì–´ ë°ì´í„° ì—…ë°ì´íŠ¸
     public void GameDataRefresh()
     {
         Level = _gameData.playerData.level;
@@ -1064,21 +1064,21 @@ public class GameManagerEx
         EXP = _gameData.playerData.currentExp;
         //Managers.Game.SaveGame("GameDataRefresh");
     }
-    // ½ºÅ×ÀÌÁö µ¥ÀÌÅÍ ¾÷µ¥ÀÌÆ®
+    // ìŠ¤í…Œì´ì§€ ë°ì´í„° ì—…ë°ì´íŠ¸
     public void StageDataRefresh()
     {
         StageData = _gameData.stageData;
         //Managers.Game.SaveGame("StageDataRefresh");
     }
-    // ÀÎº¥Åä¸® µ¥ÀÌÅÍ ¾÷µ¥ÀÌÆ®
+    // ì¸ë²¤í† ë¦¬ ë°ì´í„° ì—…ë°ì´íŠ¸
     public void InventoryDataRefresh()
     {
-        // ÀÎº¥Åä¸®
+        // ì¸ë²¤í† ë¦¬
         InventoryData = _gameData.inventoryItem;
         //Managers.Game.SaveGame("InventoryDataRefresh");
     }
 
-    // ÀåÂø ÀÌÆåÆ® ¾÷µ¥ÀÌÆ®
+    // ì¥ì°© ì´í™íŠ¸ ì—…ë°ì´íŠ¸
     #endregion
 
 
@@ -1133,7 +1133,7 @@ public class GameManagerEx
         //string jsonStr = JsonUtility.ToJson(Managers.Game.SaveData);
         string jsonSt = JsonConvert.SerializeObject(Managers.Game.SaveData);
 
-        //¾ÏÈ£È­
+        //ì•”í˜¸í™”
         byte[] bytes = System.Text.Encoding.UTF8.GetBytes(jsonSt);
         string code = System.Convert.ToBase64String(bytes);
 
@@ -1160,7 +1160,7 @@ public class GameManagerEx
         //string jsonStr = JsonUtility.ToJson(Managers.Game.SaveData);
         string jsonSt = JsonConvert.SerializeObject(Managers.Game.SaveData);
 
-        //¾ÏÈ£È­
+        //ì•”í˜¸í™”
         byte[] bytes = System.Text.Encoding.UTF8.GetBytes(jsonSt);
         string code = System.Convert.ToBase64String(bytes);
 

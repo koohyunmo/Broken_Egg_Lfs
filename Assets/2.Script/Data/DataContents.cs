@@ -130,7 +130,7 @@ public class EquipmentData
 #endregion
 
 
-// ÃÊ±â½ºÅÈ ÀĞ¾î¿À±â
+// ì´ˆê¸°ìŠ¤íƒ¯ ì½ì–´ì˜¤ê¸°
 [Serializable]
 public class StartStatData : ILoader<int, StartStat>
 {

@@ -6,15 +6,15 @@ using UnityEngine;
 
 public class BannerAd : MonoBehaviour
 { 
-    #region ¹è³Ê±¤°í
+    #region ë°°ë„ˆê´‘ê³ 
     private BannerView bannerView;
-    public void Start()
+    /*public void Start()
     {
         // Initialize the Google Mobile Ads SDK.
         MobileAds.Initialize(initStatus => { });
 
         this.RequestBanner();
-    }
+    }*/
 
     private void RequestBanner()
     {

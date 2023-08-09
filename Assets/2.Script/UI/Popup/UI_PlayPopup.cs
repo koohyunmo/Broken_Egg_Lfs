@@ -101,7 +101,7 @@ public class UI_PlayPopup : UI_Popup
 
 
     /// <summary>
-    /// ÀÎº¥Åä¸® 0 Å©·¡ÇÁÆ® 1 ¸¶ÄÏ 2 ÇÃ·¹ÀÌ¾î ¾÷±×·¹ÀÌµå 3 ±¤°í 4
+    /// ì¸ë²¤í† ë¦¬ 0 í¬ë˜í”„íŠ¸ 1 ë§ˆì¼“ 2 í”Œë ˆì´ì–´ ì—…ê·¸ë ˆì´ë“œ 3 ê´‘ê³  4
     /// </summary>
     [SerializeField]List<Image> tabBgs = new List<Image>();
     Color bgColor = new Color(1, 1, 1, 0.4f);
@@ -136,15 +136,15 @@ public class UI_PlayPopup : UI_Popup
         //BindObject(typeof(Particles));
 
         // Buttons
-        GetButton((int)Buttons.CashShopButton).gameObject.BindEvent(OnClickCashShopButton); // extension ¸Ş¼Òµå
-        GetButton((int)Buttons.GemAddButton).gameObject.BindEvent(OnClickCashShopButton); // extension ¸Ş¼Òµå
-        GetButton((int)Buttons.SettingButtonSide).gameObject.BindEvent(OnClickSettingButton); // extension ¸Ş¼Òµå
+        GetButton((int)Buttons.CashShopButton).gameObject.BindEvent(OnClickCashShopButton); // extension ë©”ì†Œë“œ
+        GetButton((int)Buttons.GemAddButton).gameObject.BindEvent(OnClickCashShopButton); // extension ë©”ì†Œë“œ
+        GetButton((int)Buttons.SettingButtonSide).gameObject.BindEvent(OnClickSettingButton); // extension ë©”ì†Œë“œ
 
         //Tab Button
-        GetButton((int)Buttons.MarketButton).gameObject.BindEvent(OnClickMarketButton); // extension ¸Ş¼Òµå
-        GetButton((int)Buttons.InventoryButton).gameObject.BindEvent(OnClickInventoryButton); // extension ¸Ş¼Òµå
-        GetButton((int)Buttons.ItemCraftButton).gameObject.BindEvent(OnClickCraftButton); // extension ¸Ş¼Òµå
-        GetButton((int)Buttons.ChestTapButton).gameObject.BindEvent(OnClickUpgradeButton); // extension ¸Ş¼Òµå
+        GetButton((int)Buttons.MarketButton).gameObject.BindEvent(OnClickMarketButton); // extension ë©”ì†Œë“œ
+        GetButton((int)Buttons.InventoryButton).gameObject.BindEvent(OnClickInventoryButton); // extension ë©”ì†Œë“œ
+        GetButton((int)Buttons.ItemCraftButton).gameObject.BindEvent(OnClickCraftButton); // extension ë©”ì†Œë“œ
+        GetButton((int)Buttons.ChestTapButton).gameObject.BindEvent(OnClickUpgradeButton); // extension ë©”ì†Œë“œ
         GetButton((int)Buttons.AdButton).gameObject.BindEvent(OnClickAdpopup);
 
         GetObject((int)GameObjects.InventoryTapBG).gameObject.BindEvent(OnClickInventoryButton);
@@ -164,16 +164,16 @@ public class UI_PlayPopup : UI_Popup
         }
 
         //Quit Button
-        GetButton((int)Buttons.MarketPopupQuitButton).gameObject.BindEvent(OnClickPopupClose); // extension ¸Ş¼Òµå
-        GetButton((int)Buttons.CraftPopupQuitButton).gameObject.BindEvent(OnClickPopupClose); // extension ¸Ş¼Òµå
-        GetButton((int)Buttons.InventoryQuitButton).gameObject.BindEvent(OnClickPopupClose); // extension ¸Ş¼Òµå
-        GetButton((int)Buttons.ChestPopupQuitButton).gameObject.BindEvent(OnClickPopupClose); // extension ¸Ş¼Òµå
-        GetButton((int)Buttons.AdPopupQuitButton).gameObject.BindEvent(OnClickPopupClose); // extension ¸Ş¼Òµå
-        GetButton((int)Buttons.CashShopPopupQuitButton).gameObject.BindEvent(OnClickPopupClose); // extension ¸Ş¼Òµå
-        GetButton((int)Buttons.OptionQuitButton).gameObject.BindEvent(OnClickPopupClose); // extension ¸Ş¼Òµå
+        GetButton((int)Buttons.MarketPopupQuitButton).gameObject.BindEvent(OnClickPopupClose); // extension ë©”ì†Œë“œ
+        GetButton((int)Buttons.CraftPopupQuitButton).gameObject.BindEvent(OnClickPopupClose); // extension ë©”ì†Œë“œ
+        GetButton((int)Buttons.InventoryQuitButton).gameObject.BindEvent(OnClickPopupClose); // extension ë©”ì†Œë“œ
+        GetButton((int)Buttons.ChestPopupQuitButton).gameObject.BindEvent(OnClickPopupClose); // extension ë©”ì†Œë“œ
+        GetButton((int)Buttons.AdPopupQuitButton).gameObject.BindEvent(OnClickPopupClose); // extension ë©”ì†Œë“œ
+        GetButton((int)Buttons.CashShopPopupQuitButton).gameObject.BindEvent(OnClickPopupClose); // extension ë©”ì†Œë“œ
+        GetButton((int)Buttons.OptionQuitButton).gameObject.BindEvent(OnClickPopupClose); // extension ë©”ì†Œë“œ
 
         //Inventory Filter Button
-        //GetButton((int)Buttons.EquipFilterButton).gameObject.BindEvent(OnClickEquipFilter); // extension ¸Ş¼Òµå
+        //GetButton((int)Buttons.EquipFilterButton).gameObject.BindEvent(OnClickEquipFilter); // extension ë©”ì†Œë“œ
 
         //Stage UI Button
         GetButton((int)Buttons.NextStageButton).gameObject.BindEvent(OnClickNextStageButton);
@@ -244,8 +244,8 @@ public class UI_PlayPopup : UI_Popup
         Managers.Stage.StageMapCheck();
 
 
-        // ±¤°í ¹öÆ°
-        GetButton((int)Buttons.AdButtonSide).gameObject.BindEvent((PointerEventData ped) => { Managers.AD.GetSideButtonReward(); });
+        // ê´‘ê³  ë²„íŠ¼
+        //GetButton((int)Buttons.AdButtonSide).gameObject.BindEvent((PointerEventData ped) => { Managers.AD.GetSideButtonReward(); });
 
 
         Managers.Sound.SetBGMVolume(0.5f);
@@ -268,14 +268,14 @@ public class UI_PlayPopup : UI_Popup
     }
     private void OnClickCashShopButton(PointerEventData obj)
     {
-        Debug.Log("Ä³½¬¼¥");
+        Debug.Log("ìºì‰¬ìƒµ");
         GetObject((int)GameObjects.CashShopPopup).gameObject.SetActive(true);
         _playTab = PlayTab.CashShop;
     }
 
     public void OnClickSettingButton(PointerEventData data)
     {
-        Debug.Log("¼¼ÆÃ");
+        Debug.Log("ì„¸íŒ…");
         GetObject((int)GameObjects.SettingPopup).gameObject.SetActive(true);
         _playTab = PlayTab.Setting;
     }
@@ -535,7 +535,7 @@ public class UI_PlayPopup : UI_Popup
                 Managers.Effect.EffectCamOff();
             }
 
-            yield return new WaitForSeconds(0.1f); // ÀÏÁ¤ ½Ã°£¸¶´Ù ¾÷µ¥ÀÌÆ®
+            yield return new WaitForSeconds(0.1f); // ì¼ì • ì‹œê°„ë§ˆë‹¤ ì—…ë°ì´íŠ¸
         }
 
         

@@ -8,15 +8,15 @@ using UnityEngine.UI;
 
 public abstract class UI_Base : MonoBehaviour
 {
-    // UnityEngine.Object´Â ÃÖ»óÀ§ ºÎ¸ğ ¸ğµç ¿ÀºêÁ§Æ®¸¦ µé°íÀÖÀ»¼ö ÀÖÀ½
+    // UnityEngine.ObjectëŠ” ìµœìƒìœ„ ë¶€ëª¨ ëª¨ë“  ì˜¤ë¸Œì íŠ¸ë¥¼ ë“¤ê³ ìˆì„ìˆ˜ ìˆìŒ
     Dictionary<Type, UnityEngine.Object[]> _objects = new Dictionary<Type, UnityEngine.Object[]>();
 
     public abstract void Init();
-    // UI ÀÚµ¿ ¹ÙÀÎµù
+    // UI ìë™ ë°”ì¸ë”©
 
 
     /// <summary>
-    /// ÀÌ¸§À» ÅëÇØ ¿ÀºêÁ§Æ® ¸ÅÇÎ,¹ÙÀÎµù
+    /// ì´ë¦„ì„ í†µí•´ ì˜¤ë¸Œì íŠ¸ ë§¤í•‘,ë°”ì¸ë”©
     /// </summary>
     /// <typeparam name="T"></typeparam>
     /// <param name="type"></param>
@@ -26,7 +26,7 @@ public abstract class UI_Base : MonoBehaviour
         UnityEngine.Object[] objects = new UnityEngine.Object[names.Length];
         _objects.Add(typeof(T), objects);
 
-        // ·çÇÁ¸¦ µ¹¸ç ¸ÅÇÎ
+        // ë£¨í”„ë¥¼ ëŒë©° ë§¤í•‘
         for (int i = 0; i < names.Length; i++)
         {
             if (typeof(T) == typeof(GameObject))
@@ -41,7 +41,7 @@ public abstract class UI_Base : MonoBehaviour
     }
 
     /// <summary>
-    /// ÀÌ¸§À» ÅëÇØ¼­ ¿ÀºêÁ§Æ® Ã£±â
+    /// ì´ë¦„ì„ í†µí•´ì„œ ì˜¤ë¸Œì íŠ¸ ì°¾ê¸°
     /// </summary>
     /// <typeparam name="T"></typeparam>
     /// <param name="idx"></param>
@@ -99,7 +99,7 @@ public abstract class UI_Base : MonoBehaviour
                 evt.OnDragHandler += action;
                 break;
 
-                // ÀÌ¸§ ¸ğµÎ ¹Ù²Ù±â ÄÁÆ®·Ñ+½¬ÇÁÆ®+F
+                // ì´ë¦„ ëª¨ë‘ ë°”ê¾¸ê¸° ì»¨íŠ¸ë¡¤+ì‰¬í”„íŠ¸+F
         }
 
         // evt.OnDragHandler += ((PointerEventData data) => { evt.gameObject.transform.position = data.position; });

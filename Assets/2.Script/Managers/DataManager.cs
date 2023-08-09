@@ -6,9 +6,9 @@ using Newtonsoft.Json;
 using System.Threading.Tasks;
 using System.Threading;
 
-// ¿øº»Àº xml °ü¸®? °ÔÀÓ¿¡¼­´Â json »ç¿ë?
+// ì›ë³¸ì€ xml ê´€ë¦¬? ê²Œì„ì—ì„œëŠ” json ì‚¬ìš©?
 // xml -> json 
-// µ¥ÀÌÅÍ¸¦ ·ÎµùÇÏ´Â ÀÎÅÍÆäÀÌ½º
+// ë°ì´í„°ë¥¼ ë¡œë”©í•˜ëŠ” ì¸í„°í˜ì´ìŠ¤
 
 public interface ILoader<Key, Value>
 {
@@ -49,7 +49,7 @@ public class DataManager
         //Start Stat
         _startStatDic = LoadJson<StartStatData, int, StartStat>("StartData").MakeDict();
 
-        Debug.Log("·Îµù");
+        Debug.Log("ë¡œë”©");
 
         //Scriptable Object
         ItemScriptbale[] itemSO = Resources.LoadAll<ItemScriptbale>("Prefabs/SO/ItemSO");
@@ -136,7 +136,7 @@ public class DataManager
             EggDic.Add(eggSO[i].level, eggSO[i]);
         }
 
-        Debug.Log("·Îµù³¡");
+        Debug.Log("ë¡œë”©ë");
 
         INIT = true;
 
