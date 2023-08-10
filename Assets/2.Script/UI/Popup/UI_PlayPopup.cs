@@ -41,7 +41,8 @@ public class UI_PlayPopup : UI_Popup
         CashShopPopupQuitButton,
         GemAddButton,
         AdButtonSide,
-        OptionQuitButton
+        OptionQuitButton,
+        ShopButtonSide
         //TODO
     }
 
@@ -246,6 +247,8 @@ public class UI_PlayPopup : UI_Popup
 
         // 광고 버튼
         GetButton((int)Buttons.AdButtonSide).gameObject.BindEvent((PointerEventData ped) => { Managers.AD.GetSideButtonReward(); });
+        // 샵버튼
+        GetButton((int)Buttons.ShopButtonSide).gameObject.BindEvent(OnClickCashShopButton);
 
 
         Managers.Sound.SetBGMVolume(0.5f);
