@@ -34,6 +34,7 @@ public class LootManager
     public Transform InventoryButton { get { return targetTrasfrom.InventoryButton; } private set { InventoryButton = targetTrasfrom.InventoryButton; } }
     public Transform LevelIcon { get { return targetTrasfrom.LevelIcon; } private set { InventoryButton = targetTrasfrom.LevelIcon; } }
     public Transform GoldIcon { get { return targetTrasfrom.GoldIcon; } private set { InventoryButton = targetTrasfrom.GoldIcon; } }
+    public Transform ChestButton { get { return targetTrasfrom.ChestButton; } private set { InventoryButton = targetTrasfrom.ChestButton; } }
     public Transform GemIcon { get { return targetTrasfrom.ZemIcon; } private set { InventoryButton = targetTrasfrom.ZemIcon; } }
 
     public ParticleSystem GoldEvent { get; set; }
@@ -234,6 +235,7 @@ class TargetTrasfrom
     public Camera lootCam { get; private set; }
     public Transform InventoryTap { get; private set; }
     public Transform InventoryButton { get; private set; }
+    public Transform ChestButton { get; private set; }
     public Transform LevelIcon { get; private set; }
     public Transform GoldIcon { get; private set; }
     public Transform ZemIcon { get; private set; }
@@ -243,6 +245,7 @@ class TargetTrasfrom
     {
         InventoryTap = GameObject.Find("InventoryTap").transform;
         InventoryButton = GameObject.Find("InventoryButton").transform;
+        ChestButton = GameObject.Find("ChestTapButton").transform;
         LevelIcon = GameObject.Find("LevelIcon").transform;
         GoldIcon = GameObject.Find("GoldIcon").transform;
         ZemIcon = GameObject.Find("ZemIcon").transform;

@@ -180,7 +180,7 @@ public class UI_QuestList : UI_Base
                 _hasPoint = Managers.Game.PlayerData.usingGem;
                 _maxPoint = Managers.Quest.UseGemQuest();
                 _level = Managers.Game.QuestData.usingGemQuestLevel;
-                _target = Managers.Loot.InventoryButton;
+                _target = Managers.Loot.ChestButton;
                 break;
             case Define.QuestType.Reinforce:
                 _hasPoint = Managers.Game.PlayerData.reinforceCount;
