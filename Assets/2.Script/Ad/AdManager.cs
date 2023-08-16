@@ -133,12 +133,14 @@ public class AdManager
     private void ShowRewardAd(Action rewardedCallback)
     {
 
-        // 5분(300초)이 지났는지 확인
-        if ((DateTime.UtcNow - _lastAdWatchedTime).TotalSeconds < 300.0f)
-        {
-            Debug.LogWarning("Please wait for the next ad.");
-            return;
-        }
+       // 5분(300초)이 지났는지 확인
+       if ((DateTime.UtcNow - _lastAdWatchedTime).TotalSeconds < 300.0f)
+       {
+           Debug.LogWarning("Please wait for the next ad.");
+           return;
+       }
+
+
 
         _rewardedCallback = rewardedCallback;
 
@@ -147,7 +149,6 @@ public class AdManager
             _rewardedAd.Show();
             _lastAdWatchedTime = DateTime.UtcNow;
             SaveLastAdTime();
-            CreateAndLoadRewardedAd();
         }
         else
         {
@@ -159,7 +160,12 @@ public class AdManager
 
     public void GetSideButtonReward()
     {
-        Action a = () => { Managers.Game.Additem("CH0004"); };
+        Action a = () => { 
+            Managers.Game.Additem("CH0004");
+            var popup = Managers.UI.ShowPopupUI<UI_Reward_Popup>();
+            popup.Init();
+            popup.UpdateUI("CH0004");
+        };
 
         ShowRewardAd(a);
     }

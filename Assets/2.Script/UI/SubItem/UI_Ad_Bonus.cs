@@ -100,6 +100,9 @@ public class UI_Ad_Bonus : UI_Base
 
         Action a = () => {
             Managers.Game.Additem(rewardId);
+            var popup = Managers.UI.ShowPopupUI<UI_Reward_Popup>();
+            popup.Init();
+            popup.UpdateUI(rewardId);
         };
 
         
