@@ -182,7 +182,7 @@ public class UI_MarketPopup : UI_Popup
     {
         while (true)
         {
-            yield return new WaitForSeconds(0.5f);
+            yield return new WaitForSeconds(0.1f);
             if (cp == ClickPanel.Item)
                 GetText((int)Texts.MarketAutoResetTimer).text = Managers.Market.MarketTimeRemainStr(2);
             else if(cp == ClickPanel.Gem)
@@ -202,6 +202,8 @@ public class UI_MarketPopup : UI_Popup
 
             itemTimer.text = Managers.AD.GetRemainingMarktAdTime();
             gemTimer.text = Managers.AD.GetRemainingMarktAdTime();
+
+            
         }
 
     }
