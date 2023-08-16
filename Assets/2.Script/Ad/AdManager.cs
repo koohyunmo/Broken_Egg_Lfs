@@ -163,7 +163,7 @@ public class AdManager
         Action a = () => { 
             Managers.Game.Additem("CH0004");
             var popup = Managers.UI.ShowPopupUI<UI_Reward_Popup>();
-            popup.Init();
+            //popup.Init();
             popup.UpdateUI("CH0004");
         };
 
