@@ -20,7 +20,8 @@ public class UI_PlayPopup : UI_Popup
         GemText,
         DpsTMP,
         ClickDmgTMP,
-        CriDmgTMP
+        CriDmgTMP,
+        AdTimerTMP
     }
     enum Buttons
     {
@@ -91,7 +92,7 @@ public class UI_PlayPopup : UI_Popup
         EquipItemIcon
     }
 
-    TextMeshProUGUI _stageText, _levelText, _moneyText, _gemText, _dpsTMP, _clickDPS, _criDPS;
+    TextMeshProUGUI _stageText, _levelText, _moneyText, _gemText, _dpsTMP, _clickDPS, _criDPS, _adTimer;
 
 
     int _level;
@@ -202,6 +203,7 @@ public class UI_PlayPopup : UI_Popup
         _dpsTMP = Get<TextMeshProUGUI>((int)TMPS.DpsTMP);
         _clickDPS = Get<TextMeshProUGUI>((int)TMPS.ClickDmgTMP);
         _criDPS = Get<TextMeshProUGUI>((int)TMPS.CriDmgTMP);
+        _adTimer = Get<TextMeshProUGUI>((int)TMPS.AdTimerTMP);
 
 
         //Stage
@@ -468,7 +470,8 @@ public class UI_PlayPopup : UI_Popup
             _gemText.text = Managers.Game.Gem.ToString();
             _dpsTMP.text = "DPS : "+CUtil.LongFormatNumber(Managers.Stage.GetDPS());
             _clickDPS.text = "CLICK DMG : " + CUtil.LongFormatNumber((long)(Managers.Stage.GetCDmage())); ;
-            _criDPS.text = "CRI DMG : " + CUtil.LongFormatNumber((long)(Managers.Stage.GetCriDMG())); ;
+            _criDPS.text = "CRI DMG : " + CUtil.LongFormatNumber((long)(Managers.Stage.GetCriDMG()));
+            _adTimer.text = Managers.AD.GetRemainingAdTime();
 
 
 

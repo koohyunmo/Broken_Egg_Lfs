@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
@@ -34,6 +35,12 @@ public class UI_MarketPopup : UI_Popup
         GemTimer
     }
 
+    enum TMPs
+    {
+        ItemMarketTimer,
+        GemMarketTimer
+    }
+
     private void Start()
     {
         Init();
@@ -65,6 +72,10 @@ public class UI_MarketPopup : UI_Popup
 
     private ItemUpdateDele UpdateItems;
     private ItemUpdateDele UpdateItems2;
+
+
+    TextMeshProUGUI itemTimer;
+    TextMeshProUGUI gemTimer;
     
 
     public override void Init()
@@ -73,6 +84,7 @@ public class UI_MarketPopup : UI_Popup
         BindObject(typeof(GameObjects));
         BindText(typeof(Texts));
         BindButton(typeof(Buttons));
+        Bind<TextMeshProUGUI>(typeof(TMPs));
 
 
         UpdateTimerUI();
@@ -147,7 +159,14 @@ public class UI_MarketPopup : UI_Popup
         GetButton((int)Buttons.SpecialMarketButton).gameObject.BindEvent(OnClickSpecialMarketButton);
         GetButton((int)Buttons.ItemMarketButton).gameObject.BindEvent(OnClickItemMarketButton);
         GetButton((int)Buttons.GemMarketButton).gameObject.BindEvent(OnClickGemMarketButton);
-        
+
+
+        // TMP
+
+        gemTimer = Get<TextMeshProUGUI>((int)TMPs.GemMarketTimer);
+        itemTimer = Get<TextMeshProUGUI>((int)TMPs.ItemMarketTimer);
+
+
 
         MarketItemUpdate();
         MarketGemItemUpdate();
@@ -163,7 +182,7 @@ public class UI_MarketPopup : UI_Popup
     {
         while (true)
         {
-            yield return new WaitForSeconds(0.1f);
+            yield return new WaitForSeconds(0.5f);
             if (cp == ClickPanel.Item)
                 GetText((int)Texts.MarketAutoResetTimer).text = Managers.Market.MarketTimeRemainStr(2);
             else if(cp == ClickPanel.Gem)
@@ -180,6 +199,9 @@ public class UI_MarketPopup : UI_Popup
             {
                 GemReset();
             }
+
+            itemTimer.text = Managers.AD.GetRemainingMarktAdTime();
+            gemTimer.text = Managers.AD.GetRemainingMarktAdTime();
         }
 
     }

@@ -28,6 +28,8 @@ public class Managers : MonoBehaviour
     private static SoundManager s_soundManger = new SoundManager();
     private static SceneMangerEx s_sceneManger = new SceneMangerEx();
     private static PoolMnagner s_poolManger = new PoolMnagner();
+
+    // 모노비헤이비어를 상속한 매니저
     private static AdManager s_adManager = new AdManager();
 
 
@@ -81,7 +83,6 @@ public class Managers : MonoBehaviour
             s_reinforceManager.Init();
             s_chestShopManager.Init();
             s_adManager.Init();
-            //s_adManager.Init();
 
         }
 

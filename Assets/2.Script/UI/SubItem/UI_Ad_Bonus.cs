@@ -8,7 +8,22 @@ using UnityEngine.EventSystems;
 public class UI_Ad_Bonus : UI_Base
 {
     [SerializeField] AdPopupController _adPopupController;
-    
+
+    enum ChestTMP
+    {
+        ChestAdTimer,
+    }
+
+    enum GoldTMP
+    {
+        GoldAdTimer,
+    }
+
+    enum GemTMP
+    {
+        GemAdTimer
+    }
+
     public enum ADType
     {
         Gem,
@@ -32,6 +47,10 @@ public class UI_Ad_Bonus : UI_Base
 
     public ADType _type;
 
+    TextMeshProUGUI _timerTMP;
+
+    Coroutine co_updateUI;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -40,21 +59,40 @@ public class UI_Ad_Bonus : UI_Base
 
     public override void Init()
     {
+
         switch (_type)
         {
             case ADType.Gem:
-                rewardId = "GM0003";
+                Bind<TextMeshProUGUI>(typeof(GemTMP));
                 break;
             case ADType.Gold:
-                rewardId = "GD0002";
+                Bind<TextMeshProUGUI>(typeof(GoldTMP));
                 break;
             case ADType.Chest:
-                rewardId = "CH0004";
+                Bind<TextMeshProUGUI>(typeof(ChestTMP));
                 break;
         }
 
         BindImage(typeof(Images));
         BindButton(typeof(Buttons));
+        
+
+        switch (_type)
+        {
+            case ADType.Gem:
+                rewardId = "GM0003";
+                _timerTMP = Get<TextMeshProUGUI>((int)GemTMP.GemAdTimer);
+                break;
+            case ADType.Gold:
+                rewardId = "GD0002";
+                _timerTMP = Get<TextMeshProUGUI>((int)GoldTMP.GoldAdTimer);
+                break;
+            case ADType.Chest:
+                rewardId = "CH0004";
+                _timerTMP = Get<TextMeshProUGUI>((int)ChestTMP.ChestAdTimer);
+                break;
+        }
+
 
         int index = (int)Managers.Data.ItemDic[rewardId].Grade;
         GetImage((int)Images.Ad_Item_Icon).sprite = Managers.Data.ItemDic[rewardId].itemIcon;
@@ -88,6 +126,32 @@ public class UI_Ad_Bonus : UI_Base
         */
 
 
+        co_updateUI = StartCoroutine(c_UpdateUI());
 
     }
+
+    private void OnEnable()
+    {
+        if(_timerTMP != null)
+        {
+            if(co_updateUI != null)
+            {
+                StopCoroutine(co_updateUI);
+                co_updateUI = StartCoroutine(c_UpdateUI());
+            }
+
+        }
+    }
+
+
+    IEnumerator c_UpdateUI()
+    {
+        while (true)
+        {
+            _timerTMP.text = Managers.AD.GetRemainingAdTime();
+            yield return new WaitForSeconds(0.5f);
+        }
+    }
+
+ 
 }

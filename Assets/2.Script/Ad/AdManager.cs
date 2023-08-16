@@ -3,16 +3,19 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AdManager
+public class AdManager 
 {
     private RewardedAd _rewardedAd;
     private InterstitialAd _interstitialAd;
     private Action _rewardedCallback;
+    private DateTime _lastAdWatchedTime;
 
     List<string> testDeviceIds = new List<string>();
 
     public void Init()
     {
+        _lastAdWatchedTime = LoadLastAdTime();
+
         testDeviceIds.Add("d98259fd-80b9-429c-ad8d-5af514ebed3c");
         testDeviceIds.Add("a8f37508-30d4-4e32-88f7-6a46079a32c8");
         testDeviceIds.Add("a4c5f293-463f-47a3-afb4-540626da7039");
@@ -75,6 +78,25 @@ public class AdManager
 
     }
 
+    private const string LAST_AD_TIME_KEY = "LastAdWatchedTime";
+
+    private void SaveLastAdTime()
+    {
+        PlayerPrefs.SetString(LAST_AD_TIME_KEY, DateTime.UtcNow.ToString("o"));
+        PlayerPrefs.Save();
+    }
+
+    private DateTime LoadLastAdTime()
+    {
+        if (PlayerPrefs.HasKey(LAST_AD_TIME_KEY))
+        {
+            string timeString = PlayerPrefs.GetString(LAST_AD_TIME_KEY);
+            return DateTime.Parse(timeString, null, System.Globalization.DateTimeStyles.RoundtripKind);
+        }
+
+        return DateTime.UtcNow.AddMinutes(-5);  // Default to 5 minutes ago if no time saved.
+    }
+
     private void HandleRewardedAdClosed(object sender, EventArgs args)
     {
         this.CreateAndLoadRewardedAd();
@@ -110,14 +132,21 @@ public class AdManager
 
     private void ShowRewardAd(Action rewardedCallback)
     {
-        _rewardedCallback = null;
 
-        
+        // 5분(300초)이 지났는지 확인
+        if ((DateTime.UtcNow - _lastAdWatchedTime).TotalSeconds < 300.0f)
+        {
+            Debug.LogWarning("Please wait for the next ad.");
+            return;
+        }
+
         _rewardedCallback = rewardedCallback;
 
         if (_rewardedAd.IsLoaded())
         {
             _rewardedAd.Show();
+            _lastAdWatchedTime = DateTime.UtcNow;
+            SaveLastAdTime();
             CreateAndLoadRewardedAd();
         }
         else
@@ -138,4 +167,37 @@ public class AdManager
     {
         ShowRewardAd(b);
     }
+
+    public string GetRemainingAdTime()
+    {
+        TimeSpan timeSinceLastAd = DateTime.UtcNow - _lastAdWatchedTime;
+        double remainingSeconds = 300.0 - timeSinceLastAd.TotalSeconds;  // 300 seconds is 5 minutes
+
+        if (remainingSeconds <= 0)
+        {
+            return "";
+        }
+
+        int minutes = (int)(remainingSeconds / 60);
+        int seconds = (int)(remainingSeconds % 60);
+
+        return $"{minutes}:{seconds:D2}";  // D2 ensures the seconds are displayed as two digits.
+    }
+
+    public string GetRemainingMarktAdTime()
+    {
+        TimeSpan timeSinceLastAd = DateTime.UtcNow - _lastAdWatchedTime;
+        double remainingSeconds = 300.0 - timeSinceLastAd.TotalSeconds;  // 300 seconds is 5 minutes
+
+        if (remainingSeconds <= 0)
+        {
+            return "Reset";
+        }
+
+        int minutes = (int)(remainingSeconds / 60);
+        int seconds = (int)(remainingSeconds % 60);
+
+        return $"{minutes}:{seconds:D2}";  // D2 ensures the seconds are displayed as two digits.
+    }
+
 }
