@@ -9,9 +9,35 @@ public class LoginScene : BaseScene
     {
         base.Init();
         SceneType = Define.Scene.Login;
+        //StartCoroutine(co_WaitManagerLoading());
+        //StartCoroutine(c_StartCo());
 
-        StartCoroutine(co_WaitManagerLoading());
+        LoadUI();
+    }
 
+    IEnumerator c_StartCo()
+    {
+        while (true) 
+        {
+            if (Managers.Data.INIT == true)
+            {
+                Managers.Data.DataLoaded(LoadUI);
+                yield break;
+            }
+            else
+            {
+                yield return new WaitForSeconds(0.1f);
+            }
+        }
+    }
+
+    private void LoadUI()
+    {
+        Managers.UI.ShowPopupUI<UI_PlayPopup>();
+
+#if UNITY_EDITOR
+        Managers.UI.ShowPopupUI<UI_Button>();
+#endif
     }
 
     IEnumerator co_WaitManagerLoading()

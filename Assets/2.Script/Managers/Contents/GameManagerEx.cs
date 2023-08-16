@@ -1171,7 +1171,7 @@ public class GameManagerEx
     public async Task<bool> LoadGame()
     {
 
-        bool b = await LoadGameAsync();
+        bool b = await LoadGameAsync2();
 
         return b;
     }
@@ -1207,6 +1207,58 @@ public class GameManagerEx
         Debug.Log($"Save Game Loaded : {_path}");
 
         return true;
+    }
+
+
+    async Task<bool> LoadGameAsync2()
+    {
+        if (!File.Exists(_path))
+        {
+            Debug.Log("There is no save data.");
+            return false;
+        }
+
+        GameData data = null;
+        try
+        {
+            string fileStr =  File.ReadAllText(_path);
+            byte[] bytes = System.Convert.FromBase64String(fileStr);
+            string jdata = System.Text.Encoding.UTF8.GetString(bytes);
+            data = JsonConvert.DeserializeObject<GameData>(jdata);
+        }
+        catch (Exception e)
+        {
+            Debug.LogError($"Failed to load or deserialize game data. Reason: {e.Message}");
+
+            // Delete the corrupted file
+            try
+            {
+                File.Delete(_path);
+                Debug.Log("Corrupted save data deleted.");
+            }
+            catch (Exception deleteException)
+            {
+                Debug.LogError($"Failed to delete corrupted save data. Reason: {deleteException.Message}");
+            }
+
+            // Initialize game with default or initial data
+            FirstStartStat();
+
+            return false;
+        }
+
+        if (data == null)
+        {
+            Debug.LogError("Deserialized game data is null.");
+            FirstStartStat();
+            return false;
+        }
+        else
+        {
+            Managers.Game.SaveData = data;
+            Debug.Log($"Save Game Loaded : {_path}");
+            return true;
+        }
     }
 
 

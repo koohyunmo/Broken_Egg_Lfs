@@ -44,8 +44,25 @@ public class DataManager
 
     public bool INIT { get; private set; } = false;
 
+    Action _callback = null;
+
+    public void DataLoaded(Action action)
+    {
+        _callback = null;
+        _callback = action;
+
+        if (INIT == true)
+        {
+            _callback?.Invoke();
+            return;
+        }
+    }
+
     public async void Init()
     {
+
+
+        
         //Start Stat
         _startStatDic = LoadJson<StartStatData, int, StartStat>("StartData").MakeDict();
 
@@ -139,7 +156,6 @@ public class DataManager
         Debug.Log("로딩끝");
 
         INIT = true;
-
     }
     public void StartStatLoadTest()
     {
