@@ -11,7 +11,7 @@ public class AdManager
     private DateTime _lastAdWatchedTime;
     private const string LAST_AD_TIME_KEY = "LastAdWatchedTime";
 
-    private float adDelay = 1f;
+    private float adDelay = 5f;
 
 
     private readonly float Sec = 60.0f;
