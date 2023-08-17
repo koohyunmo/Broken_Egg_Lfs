@@ -62,6 +62,12 @@ public class UI_Ad_Bonus : UI_Base
 
         Action a = () => {
             Managers.Game.Additem(rewardId);
+            Debug.Log($"Get a {rewardId}");
+            var popup = Managers.UI.ShowPopupUI<UI_Reward_Popup>();
+            if(rewardId == "CH0004")
+                popup.UpdateChestRewardPopup(rewardId);
+            else
+                popup.UpdateUI(rewardId);
         };
 
 

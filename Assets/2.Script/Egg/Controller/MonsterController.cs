@@ -202,7 +202,7 @@ public class MonsterController : MonoBehaviour
            
         }
         Managers.Sound.Play(onHitSound[_count%2]);
-        Debug.Log(onHitSound[_count % 2].name);
+        //Debug.Log(onHitSound[_count % 2].name);
         _count++;
         yield return new WaitForSeconds(0.1f);
         Managers.Sound.Play(onDamageSound);

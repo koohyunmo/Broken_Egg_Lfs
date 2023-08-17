@@ -8,11 +8,21 @@ public class AdManager
     private RewardedAd _rewardedAd;
     private InterstitialAd _interstitialAd;
     private Action _rewardedCallback;
+    private DateTime _lastAdWatchedTime;
+    private const string LAST_AD_TIME_KEY = "LastAdWatchedTime";
+
+    private float adDelay = 1f;
+
+
+    private readonly float Sec = 60.0f;
+
 
     List<string> testDeviceIds = new List<string>();
 
     public void Init()
     {
+        _lastAdWatchedTime = LoadLastAdTime();
+
         testDeviceIds.Add("d98259fd-80b9-429c-ad8d-5af514ebed3c");
         testDeviceIds.Add("a8f37508-30d4-4e32-88f7-6a46079a32c8");
         testDeviceIds.Add("a4c5f293-463f-47a3-afb4-540626da7039");
@@ -103,13 +113,22 @@ public class AdManager
 
     private void HandleUserEarnedReward(object sender, EventArgs args)
     {
-        Debug.Log("HandleUserEarnedReward");
+        Debug.Log("get a reward");
         _rewardedCallback?.Invoke();
         _rewardedCallback = null;
     }
 
     public void ShowRewardAd(Action rewardedCallback)
     {
+
+        // 3분이 지났는지 확인
+        if ((DateTime.UtcNow - _lastAdWatchedTime).TotalSeconds < adDelay * Sec)
+        {
+            Debug.LogWarning("Please wait for the next ad.");
+            return;
+        }
+
+
         _rewardedCallback = null;
         _rewardedCallback = rewardedCallback;
 
@@ -117,6 +136,8 @@ public class AdManager
         if (_rewardedAd.IsLoaded())
         {
             _rewardedAd.Show();
+            _lastAdWatchedTime = DateTime.UtcNow;
+            SaveLastAdTime();
         }
         else
             CreateAndLoadRewardedAd();
@@ -124,7 +145,12 @@ public class AdManager
 
     public void GetSideButtonReward()
     {
-        Action a = () => { Managers.Game.Additem("CH0004"); };
+        Action a = () => {
+            Managers.Game.Additem("CH0004");
+            Debug.Log("Get CH");
+            var popup = Managers.UI.ShowPopupUI<UI_Reward_Popup>();
+            popup.UpdateChestRewardPopup("CH0004");
+        };
 
         ShowRewardAd(a);
     }
@@ -132,4 +158,57 @@ public class AdManager
     {
         ShowRewardAd(b);
     }
+
+    #region 타이머
+
+    private void SaveLastAdTime()
+    {
+        PlayerPrefs.SetString(LAST_AD_TIME_KEY, DateTime.UtcNow.ToString("o"));
+        PlayerPrefs.Save();
+    }
+
+    private DateTime LoadLastAdTime()
+    {
+        if (PlayerPrefs.HasKey(LAST_AD_TIME_KEY))
+        {
+            string timeString = PlayerPrefs.GetString(LAST_AD_TIME_KEY);
+            return DateTime.Parse(timeString, null, System.Globalization.DateTimeStyles.RoundtripKind);
+        }
+
+        return DateTime.UtcNow.AddMinutes(-adDelay);  // Default to 5 minutes ago if no time saved.
+    }
+
+    public string GetRemainingAdTime()
+    {
+        TimeSpan timeSinceLastAd = DateTime.UtcNow - _lastAdWatchedTime;
+        double remainingSeconds = adDelay*Sec - timeSinceLastAd.TotalSeconds;  // 300 seconds is 5 minutes
+
+        if (remainingSeconds <= 0)
+        {
+            return "";
+        }
+
+        int minutes = (int)(remainingSeconds / 60);
+        int seconds = (int)(remainingSeconds % 60);
+
+        return $"{minutes}:{seconds:D2}";  // D2 ensures the seconds are displayed as two digits.
+    }
+
+    public string GetRemainingMarktAdTime()
+    {
+        TimeSpan timeSinceLastAd = DateTime.UtcNow - _lastAdWatchedTime;
+        double remainingSeconds = adDelay * Sec - timeSinceLastAd.TotalSeconds;  // 300 seconds is 5 minutes
+
+        if (remainingSeconds <= 0)
+        {
+            return "Reset";
+        }
+
+        int minutes = (int)(remainingSeconds / 60);
+        int seconds = (int)(remainingSeconds % 60);
+
+        return $"{minutes}:{seconds:D2}";  // D2 ensures the seconds are displayed as two digits.
+    }
+
+    #endregion
 }

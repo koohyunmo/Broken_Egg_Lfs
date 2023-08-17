@@ -44,6 +44,8 @@ public class DataManager
 
     public bool INIT { get; private set; } = false;
 
+    public int count = 0;
+    public int maxCount = 100;
     public async void Init()
     {
         //Start Stat
@@ -56,14 +58,15 @@ public class DataManager
         EggScriptableObject[] eggSO = Resources.LoadAll<EggScriptableObject>("Prefabs/SO/EggSO/");
 
 
+
         Sprite[] frames = Resources.LoadAll<Sprite>("Images/Frames/");
         Frames.AddRange(frames);
 
-        Debug.Log("egg Data: " + eggSO.Length);
-        Debug.Log("Item Data : " + itemSO.Length);
+        Debug.Log("Data: " + (eggSO.Length + itemSO.Length));
+
+        maxCount = eggSO.Length + itemSO.Length;
 
         ItemDic.Clear();
-        //itemSOKey.Clear();
         EggDic.Clear();
 
        await InitAsync(itemSO, eggSO);
@@ -118,6 +121,8 @@ public class DataManager
                     WeaponList.Add(itemSO[i].itemID);
                     break;
             }
+
+            Debug.Log($"Data Loaded  {count++}/{maxCount} ");
         }
 
         WeaponQuestList.Add(WeaponList[10]);
@@ -134,6 +139,7 @@ public class DataManager
         for (int i = 0; i < eggSO.Length; i++)
         {
             EggDic.Add(eggSO[i].level, eggSO[i]);
+            Debug.Log($"Data Loaded  {count++}/{maxCount} ");
         }
 
         Debug.Log("·Îµù³¡");

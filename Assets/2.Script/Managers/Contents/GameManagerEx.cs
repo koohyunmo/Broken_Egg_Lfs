@@ -1145,7 +1145,7 @@ public class GameManagerEx
          */
 
         File.WriteAllText(_path, code);
-        Debug.Log($" request : {requestFunc} \n Save Game Completed : {_path}");
+        //Debug.Log($" request : {requestFunc} \n Save Game Completed : {_path}");
     }
 
 
@@ -1204,7 +1204,7 @@ public class GameManagerEx
             Managers.Game.SaveData = data;
         }
 
-        Debug.Log($"Save Game Loaded : {_path}");
+        //Debug.Log($"Save Game Loaded : {_path}");
 
         return true;
     }
