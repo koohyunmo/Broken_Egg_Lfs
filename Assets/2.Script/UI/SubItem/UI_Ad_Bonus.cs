@@ -62,20 +62,26 @@ public class UI_Ad_Bonus : UI_Base
 
         Action a = () => {
             Managers.Game.Additem(rewardId);
-            Debug.Log($"Get a {rewardId}");
-            var popup = Managers.UI.ShowPopupUI<UI_Reward_Popup>();
-            if(rewardId == "CH0004")
-                popup.UpdateChestRewardPopup(rewardId);
-            else
-                popup.UpdateUI(rewardId);
+            StartCoroutine(enumerator(rewardId));
         };
-
 
         GetButton((int)Buttons.Ad_Front_Button).gameObject.BindEvent((PointerEventData data) => {
 
             Managers.AD.GetMaketAdResetReward(a);
-            Managers.Game.SaveGame("AdButton");
-
         });
+    }
+
+    IEnumerator enumerator(string id)
+    {
+        yield return new WaitForSeconds(1f);
+        var popup = Managers.UI.ShowPopupUI<UI_Reward_Popup>();
+
+        if (id == "CH0004")
+            popup.UpdateChestRewardPopup(rewardId);
+        else
+            popup.UpdateUI(rewardId);
+
+        yield return null;
+        Debug.Log($"Get a {rewardId}");
     }
 }

@@ -28,7 +28,7 @@ public class Managers : MonoBehaviour
     private static SoundManager s_soundManger = new SoundManager();
     private static SceneMangerEx s_sceneManger = new SceneMangerEx();
     private static PoolMnagner s_poolManger = new PoolMnagner();
-    private static AdManager s_adManager = new AdManager();
+    private static AdManager s_adManager;
 
 
     // UI 게임데이터 API DB 등 관리 매니저
@@ -64,6 +64,7 @@ public class Managers : MonoBehaviour
             {
                 go = new GameObject { name = "@Managers" };
                 go.AddComponent<Managers>();
+                s_adManager = go.GetOrAddComponent<AdManager>();
             }
 
             DontDestroyOnLoad(go);

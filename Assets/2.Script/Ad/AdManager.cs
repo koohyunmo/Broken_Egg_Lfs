@@ -1,9 +1,10 @@
 using GoogleMobileAds.Api;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AdManager
+public class AdManager : MonoBehaviour
 {
     private RewardedAd _rewardedAd;
     private InterstitialAd _interstitialAd;
@@ -148,12 +149,20 @@ public class AdManager
         Action a = () => {
             Managers.Game.Additem("CH0004");
             Debug.Log("Get CH");
-            var popup = Managers.UI.ShowPopupUI<UI_Reward_Popup>();
-            popup.UpdateChestRewardPopup("CH0004");
+            StartCoroutine(c_RewardPopup("CH0004"));
         };
 
         ShowRewardAd(a);
     }
+
+    IEnumerator c_RewardPopup(string id)
+    {
+        yield return new WaitForSeconds(1f);
+        var popup = Managers.UI.ShowPopupUI<UI_Reward_Popup>();
+        popup.UpdateChestRewardPopup("CH0004");
+    }
+
+
     public void GetMaketAdResetReward(Action b)
     {
         ShowRewardAd(b);
