@@ -150,15 +150,19 @@ public class AdManager : MonoBehaviour
 
     }
 
+
+    private void SideButtonReward()
+    {
+        Managers.Game.Additem("CH0004");
+        Debug.Log("Get CH");
+        StartCoroutine(c_RewardPopup("CH0004"));
+    }
+
     public void GetSideButtonReward()
     {
-        Action a = () => {
-            Managers.Game.Additem("CH0004");
-            Debug.Log("Get CH");
-            StartCoroutine(c_RewardPopup("CH0004"));
-        };
 
-        ShowRewardAd(a);
+
+        ShowRewardAd(SideButtonReward);
     }
 
     IEnumerator c_RewardPopup(string id)

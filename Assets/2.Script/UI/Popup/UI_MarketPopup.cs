@@ -121,7 +121,7 @@ public class UI_MarketPopup : UI_Popup
     private void RewardAction1()
     {
         Managers.Market.ClickAdList();
-        MarketItemListUpdate();
+        //MarketItemListUpdate();
         UpdateTimerUI();
         MarketItemUpdate();
 
@@ -178,33 +178,6 @@ public class UI_MarketPopup : UI_Popup
     void MarketItemUpdate()
     {
 
-
-        //GameObject gridPanel = Get<GameObject>((int)GameObjects.MarketContents);
-
-        //if (gridPanel == null)
-        //    return;
-
-        //foreach (Transform child in gridPanel.transform)
-        //    Managers.Resource.Destroy(child.gameObject);
-
-
-        //foreach (string keys in Managers.Game.MarketData.currentItem.Keys)
-        //{
-        //    GameObject item2 = Managers.UI.MakeSubItem<UI_Market_Item>(gridPanel.transform).gameObject;
-        //    UI_Market_Item market_Item2 = item2.GetOrAddComponent<UI_Market_Item>();
-
-
-        //    // 상점에서만 구매
-        //    if (Managers.Data.ItemDic.TryGetValue(keys, out ItemScriptbale itemSO))
-        //        market_Item2.InitData(itemSO, ref UpdateItems, ItemUpdate);
-        //    else
-        //    {
-        //        Managers.Resource.Destroy(item2);
-        //        continue;
-        //    }
-        //}
-
-
         StartCoroutine(UpdateDelay());
 
     }
@@ -244,10 +217,9 @@ public class UI_MarketPopup : UI_Popup
                 Managers.Resource.Destroy(item2);
                 continue;
             }
-            yield return null;
         }
 
-        
+        yield return new WaitForSeconds(0.1f);
         Managers.Game.SaveGame("ChangeMarketItem");
 
     }
@@ -430,7 +402,7 @@ public class UI_MarketPopup : UI_Popup
     {
 
         Managers.Market.AutoReset();
-        MarketItemListUpdate();
+        //MarketItemListUpdate();
         UpdateTimerUI();
         MarketItemUpdate();
 
