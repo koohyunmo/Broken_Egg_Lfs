@@ -76,33 +76,22 @@ public class UI_MarketPopup : UI_Popup
 
         UpdateTimerUI();
 
-        GetButton((int)Buttons.AdResetButton).gameObject.BindEvent((PointerEventData) => {
-            Action a = () =>
-            {
-                Managers.Market.ClickAdList(); 
-                //MarketItemListUpdate();
-                UpdateTimerUI();
-                MarketItemUpdate();
-                
-            };
 
-            Managers.AD.GetMaketAdResetReward(a);
+        GetButton((int)Buttons.AdResetButton).gameObject.BindEvent((PointerEventData) => {
+
+
+            Managers.AD.GetReward(RewardAction1);
 
         });
 
-        GetButton((int)Buttons.AdGemResetButton).gameObject.BindEvent((PointerEventData) => {
-            Action a = () =>
-            {
-                Managers.Market.ClickGemAdList(); 
-                MarketGemItemUpdate();
-                UpdateTimerUI();
-                MarketItemUpdate();
-            };
 
-            Managers.AD.GetMaketAdResetReward(a);
+        GetButton((int)Buttons.AdGemResetButton).gameObject.BindEvent((PointerEventData) => {
+
+            Managers.AD.GetReward(RewardAction);
             
 
         });
+
 
 
 
@@ -127,6 +116,23 @@ public class UI_MarketPopup : UI_Popup
 
         //StartCoroutine(c_UpdateTimerUI());
 
+    }
+
+    private void RewardAction1()
+    {
+        Managers.Market.ClickAdList();
+        MarketItemListUpdate();
+        UpdateTimerUI();
+        MarketItemUpdate();
+
+    }
+
+    private void RewardAction()
+    {
+        Managers.Market.ClickGemAdList();
+        MarketGemItemUpdate();
+        UpdateTimerUI();
+        MarketItemUpdate();
     }
 
     IEnumerator c_UpdateTimerUI()
@@ -238,10 +244,10 @@ public class UI_MarketPopup : UI_Popup
                 Managers.Resource.Destroy(item2);
                 continue;
             }
-
+            yield return null;
         }
 
-        yield return new WaitForEndOfFrame();
+        
         Managers.Game.SaveGame("ChangeMarketItem");
 
     }
@@ -312,9 +318,11 @@ public class UI_MarketPopup : UI_Popup
                 Managers.Resource.Destroy(item2);
                 continue;
             }
+
+            yield return null;
         }
 
-        yield return new WaitForEndOfFrame();
+        
         Managers.Game.SaveGame("ChangeMarketItem");
     }
 

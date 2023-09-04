@@ -60,15 +60,16 @@ public class UI_Ad_Bonus : UI_Base
         GetImage((int)Images.Ad_Item_Icon).sprite = Managers.Data.ItemDic[rewardId].itemIcon;
         GetImage((int)Images.Ad_Item_Icon_Frame).sprite = Managers.Data.Frames[index];
 
-        Action a = () => {
-            Managers.Game.Additem(rewardId);
-            StartCoroutine(enumerator(rewardId));
-        };
-
         GetButton((int)Buttons.Ad_Front_Button).gameObject.BindEvent((PointerEventData data) => {
 
-            Managers.AD.GetMaketAdResetReward(a);
+            Managers.AD.GetReward(RewardAction);
         });
+    }
+
+    private void RewardAction()
+    {
+        Managers.Game.Additem(rewardId);
+        StartCoroutine(enumerator(rewardId));
     }
 
     IEnumerator enumerator(string id)
@@ -81,7 +82,6 @@ public class UI_Ad_Bonus : UI_Base
         else
             popup.UpdateUI(rewardId);
 
-        yield return null;
         Debug.Log($"Get a {rewardId}");
     }
 }

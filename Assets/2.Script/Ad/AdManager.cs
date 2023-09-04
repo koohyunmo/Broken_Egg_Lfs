@@ -126,22 +126,28 @@ public class AdManager : MonoBehaviour
         if ((DateTime.UtcNow - _lastAdWatchedTime).TotalSeconds < adDelay * Sec)
         {
             Debug.LogWarning("Please wait for the next ad.");
+            CreateAndLoadRewardedAd();
             return;
         }
-
-
-        _rewardedCallback = null;
-        _rewardedCallback = rewardedCallback;
-
-        //CreateAndLoadRewardedAd();
-        if (_rewardedAd.IsLoaded())
-        {
-            _rewardedAd.Show();
-            _lastAdWatchedTime = DateTime.UtcNow;
-            SaveLastAdTime();
-        }
         else
-            CreateAndLoadRewardedAd();
+        {
+            _rewardedCallback = null;
+            _rewardedCallback = rewardedCallback;
+
+            //CreateAndLoadRewardedAd();
+            if (_rewardedAd.IsLoaded())
+            {
+                _rewardedAd.Show();
+                _lastAdWatchedTime = DateTime.UtcNow;
+                SaveLastAdTime();
+                CreateAndLoadRewardedAd();
+            }
+            else
+                CreateAndLoadRewardedAd();
+        }
+
+
+
     }
 
     public void GetSideButtonReward()
@@ -163,9 +169,9 @@ public class AdManager : MonoBehaviour
     }
 
 
-    public void GetMaketAdResetReward(Action b)
+    public void GetReward(Action rewardAction)
     {
-        ShowRewardAd(b);
+        ShowRewardAd(rewardAction);
     }
 
     #region Å¸ÀÌ¸Ó
