@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using System.Linq;
 
 public class UI_MarketPopup : UI_Popup
 {
@@ -93,11 +94,14 @@ public class UI_MarketPopup : UI_Popup
         GetButton((int)Buttons.AdResetButton).onClick.RemoveAllListeners();
         GetButton((int)Buttons.AdResetButton).onClick.AddListener(() =>
         {
-            Managers.Market.ClickAdList(); 
-            //MarketItemListUpdate();
-            UpdateTimerUI();
-            MarketItemUpdate();
-            _adPopupController.GetReward(3);
+            if (_adPopupController.CanGetReward())
+            {
+                Managers.Market.ClickAdList();
+                //MarketItemListUpdate();
+                UpdateTimerUI();
+                MarketItemUpdate();
+                _adPopupController.GetReward(3);
+            }
         });
         GetButton((int)Buttons.AdResetButton).interactable = false;
 
@@ -117,11 +121,14 @@ public class UI_MarketPopup : UI_Popup
         GetButton((int)Buttons.AdGemResetButton).onClick.RemoveAllListeners();
         GetButton((int)Buttons.AdGemResetButton).onClick.AddListener(() =>
         {
-            Managers.Market.ClickGemAdList(); 
-            MarketGemItemUpdate();
-            UpdateTimerUI();
-            MarketItemUpdate();
-            _adPopupController.GetReward(4);
+            if (_adPopupController.CanGetReward())
+            {
+                Managers.Market.ClickGemAdList();
+                MarketGemItemUpdate();
+                UpdateTimerUI();
+                MarketItemUpdate();
+                _adPopupController.GetReward(4);
+            }
         });
         GetButton((int)Buttons.AdGemResetButton).interactable = false;
 
@@ -239,31 +246,54 @@ public class UI_MarketPopup : UI_Popup
 
         int count = 0;
 
-        foreach (string keys in Managers.Game.MarketData.currentItem.Keys)
+        var keys = Managers.Game.MarketData.currentItem.Keys.ToList<string>();
+
+        for (int i = 0; i < 8; i++)
         {
             GameObject item2 = Managers.UI.MakeSubItem<UI_Market_Item>(gridPanel.transform).gameObject;
             UI_Market_Item market_Item2 = item2.GetOrAddComponent<UI_Market_Item>();
 
-            if (count > 8)
-                break;
-
             // 상점에서만 구매
-            if (Managers.Data.ItemDic.TryGetValue(keys, out ItemScriptbale itemSO))
+            if (Managers.Data.ItemDic.TryGetValue(keys[i], out ItemScriptbale itemSO))
             {
                 market_Item2.InitData(itemSO, ref UpdateItems, ItemUpdate);
-                count++;
+ 
             }
-                
             else
             {
                 Managers.Resource.Destroy(item2);
                 continue;
             }
 
+            yield return null;
+            //Managers.Game.SaveGame("ChangeMarketItem");
         }
 
-        yield return new WaitForEndOfFrame();
-        Managers.Game.SaveGame("ChangeMarketItem");
+        //foreach (string key in Managers.Game.MarketData.currentItem.Keys)
+        //{
+        //    GameObject item2 = Managers.UI.MakeSubItem<UI_Market_Item>(gridPanel.transform).gameObject;
+        //    UI_Market_Item market_Item2 = item2.GetOrAddComponent<UI_Market_Item>();
+
+        //    if (count > 8)
+        //        break;
+
+        //    // 상점에서만 구매
+        //    if (Managers.Data.ItemDic.TryGetValue(key, out ItemScriptbale itemSO))
+        //    {
+        //        market_Item2.InitData(itemSO, ref UpdateItems, ItemUpdate);
+        //        count++;
+        //    }
+                
+        //    else
+        //    {
+        //        Managers.Resource.Destroy(item2);
+        //        continue;
+        //    }
+
+        //}
+
+        //yield return new WaitForEndOfFrame();
+        //Managers.Game.SaveGame("ChangeMarketItem");
 
     }
 

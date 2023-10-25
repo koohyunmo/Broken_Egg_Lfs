@@ -74,9 +74,12 @@ public class UI_Ad_Bonus : UI_Base
         GetButton((int)Buttons.Ad_Front_Button).onClick.RemoveAllListeners();
         GetButton((int)Buttons.Ad_Front_Button).onClick.AddListener(() =>
         {
-            _adPopupController.GetReward((int)_type);
-            a.Invoke();
-            Managers.Game.SaveGame("AdButton");
+            if (_adPopupController.CanGetReward())
+            {
+                _adPopupController.GetReward((int)_type);
+                a.Invoke();
+                Managers.Game.SaveGame("AdButton");
+            }
         });
         
         GetButton((int)Buttons.Ad_Front_Button).interactable = false;
