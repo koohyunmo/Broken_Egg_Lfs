@@ -147,7 +147,9 @@ public class UI_PlayPopup : UI_Popup
         GetButton((int)Buttons.ChestTapButton).gameObject.BindEvent(OnClickUpgradeButton); // extension 메소드
         GetButton((int)Buttons.AdButton).gameObject.BindEvent(OnClickAdpopup);
 
-#if UNITY_EDITOR_WIN
+#if UNITY_ANDROID
+        GetButton((int)Buttons.GemAddButton).gameObject.SetActive(true);
+#else
         GetButton((int)Buttons.GemAddButton).gameObject.SetActive(false);
 #endif
 
